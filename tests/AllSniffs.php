@@ -49,7 +49,7 @@ class AllSniffs
 
         $suite = new TestSuite('Linchpin Standards');
 
-        $standards_dir = dirname(__DIR__) . '/Linchpin';
+        $standards_dir = dirname(__DIR__);
         $all_details = Standards::getInstalledStandardDetails(false, $standards_dir);
         $details = $all_details['Linchpin'];
 

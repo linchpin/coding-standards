@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<ruleset name="Linchpin">
+<ruleset name="Linchpin" namespace="Linchpin\CodingStandards">
 	<description>Linchpin coding standards.</description>
 
 	<exclude-pattern>node_modules/*</exclude-pattern>
