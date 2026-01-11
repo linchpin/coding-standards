@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.2](https://github.com/linchpin/coding-standards/compare/v1.0.1...v1.0.2) (2026-01-11)
+
+
+### Miscellaneous Chores
+
+* **NO-TASK:** Updating minimum dependencies ([f4d3bf7](https://github.com/linchpin/coding-standards/commit/f4d3bf7125795c8504dcfc406fb468cf1342e3e4))
+* **NO-TASK:** Updating minimum dependencies ([bbf1e91](https://github.com/linchpin/coding-standards/commit/bbf1e91f37de0aa09c9f75fb8c75e5a087a825a3))
+
 ## [1.0.1](https://github.com/linchpin/coding-standards/compare/v1.0.0...v1.0.1) (2026-01-11)
 
 
