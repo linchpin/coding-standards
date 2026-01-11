@@ -89,7 +89,7 @@ class FixtureTests extends TestCase
     /**
      * Setup our ruleset.
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->config            = new Config();
         $this->config->cache     = false;
