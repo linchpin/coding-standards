@@ -10,8 +10,8 @@
     <exclude name="PHPCompatibility.Miscellaneous.RemovedAlternativePHPTags.MaybeASPOpenTagFound"/>
   </rule>
   <!--
-		Rules based on WordPress-Core
-	-->
+    Rules based on WordPress-Core
+  -->
   <!-- Disallow slow database queries -->
   <rule ref="Linchpin.Performance.SlowMetaQuery"/>
   <rule ref="Linchpin.Performance.SlowOrderBy"/>
@@ -46,9 +46,9 @@
         <element value="get_term_link"/>
         <element value="wp_nonce_url"/>
         <!--
-					For the minimum standard, we're not treating translations
-					as an attack vector.
-				-->
+          For the minimum standard, we're not treating translations
+          as an attack vector.
+        -->
         <element value="__"/>
         <element value="_x"/>
         <element value="_n"/>
@@ -141,15 +141,15 @@
     <!-- Allow empty strings to be translated (e.g. space character) -->
     <exclude name="WordPress.WP.I18n.NoEmptyStrings"/>
     <!--
-			Allow unordered placeholders. It's not good style, but strictly
-			speaking it's not a problem.
-		-->
+      Allow unordered placeholders. It's not good style, but strictly
+      speaking it's not a problem.
+    -->
     <exclude name="WordPress.WP.I18n.UnorderedPlaceholdersText"/>
     <exclude name="WordPress.WP.I18n.MixedOrderedPlaceholdersText"/>
   </rule>
   <!--
-		Rules based on WordPress-Extra
-	-->
+    Rules based on WordPress-Extra
+  -->
   <!-- Disallow parts of PHP which may cause compatibility issues. -->
   <rule ref="Generic.Functions.CallTimePassByReference"/>
   <!-- Disallow "development" functions like var_dump/print_r/phpinfo -->
@@ -208,9 +208,9 @@
     <properties>
       <property name="exclude" type="array">
         <!--
-					wp_reset_query() does a different thing to
-					wp_reset_postdata() and should not be discouraged.
-				-->
+          wp_reset_query() does a different thing to
+          wp_reset_postdata() and should not be discouraged.
+        -->
         <element value="wp_reset_query"/>
       </property>
     </properties>
@@ -225,8 +225,8 @@
     <message>Errors should not be silenced. Found: %s</message>
   </rule>
   <!--
-		Based on WordPress-VIP
-	-->
+    Based on WordPress-VIP
+  -->
   <!-- Require nonce verification. -->
   <rule ref="Linchpin.Security.NonceVerification">
     <properties>
@@ -242,9 +242,9 @@
       </property>
       <property name="customSanitizingFunctions" type="array">
         <!--
-					Decoding isn't technically a sanitisation function,
-					however you can't really sanitize JSON input.
-				-->
+          Decoding isn't technically a sanitisation function,
+          however you can't really sanitize JSON input.
+        -->
         <element value="json_decode"/>
         <!-- wp_trim_words() uses wp_strip_all_tags() internally. -->
         <element value="wp_trim_words"/>

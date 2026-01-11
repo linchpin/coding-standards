@@ -20,24 +20,24 @@
     <exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
     <exclude name="WordPress.PHP.DisallowShortTernary"/>
     <!--
-		OK, real talk right now. Yoda conditions are ridiculous.
+    OK, real talk right now. Yoda conditions are ridiculous.
 
-		The fundamental problem that Yoda conditions attempts to solve is:
-		the equality operator is very close to the assignment operator.
-		It's easy to mess up and accidentally assign to the variable you're
-		trying to check.
+    The fundamental problem that Yoda conditions attempts to solve is:
+    the equality operator is very close to the assignment operator.
+    It's easy to mess up and accidentally assign to the variable you're
+    trying to check.
 
-		Here's the thing though. Yoda conditions just don't read correctly
-		in the code flow. They require you to change the way you think
-		about the control flow.
+    Here's the thing though. Yoda conditions just don't read correctly
+    in the code flow. They require you to change the way you think
+    about the control flow.
 
-		Rather than forcing every conditional to be backwards, why not ban
-		assignment from conditionals? You never really *need* to assign in
-		a conditional.
+    Rather than forcing every conditional to be backwards, why not ban
+    assignment from conditionals? You never really *need* to assign in
+    a conditional.
 
-		So, here's where I stand: no to Yoda conditions. Yes to banning
-		assignment in conditionals.
-		-->
+    So, here's where I stand: no to Yoda conditions. Yes to banning
+    assignment in conditionals.
+    -->
     <exclude name="WordPress.PHP.YodaConditions"/>
   </rule>
   <!-- Require proper docblocks be used in all PHP files -->
@@ -90,12 +90,12 @@
     </properties>
   </rule>
   <!--
-	Restore the ability to have multiple arguments per line
+  Restore the ability to have multiple arguments per line
 
-	WPCS disallowed this behavior in 1.1.0, but we'd like to keep it until
-	there is a reason to disallow multiple arguments.
-	Ref: https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/commit/bb8a48671e213a5588a6439ea52411eeefab4b0f
-	-->
+  WPCS disallowed this behavior in 1.1.0, but we'd like to keep it until
+  there is a reason to disallow multiple arguments.
+  Ref: https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/commit/bb8a48671e213a5588a6439ea52411eeefab4b0f
+  -->
   <rule ref="PEAR.Functions.FunctionCallSignature">
     <properties>
       <property name="allowMultipleArguments" value="true"/>
@@ -108,10 +108,10 @@
     <severity>0</severity>
   </rule>
   <!--
-	Linchpin Rules
+  Linchpin Rules
 
-	Based on WordPress Coding Standards with Linchpin customizations.
-	-->
+  Based on WordPress Coding Standards with Linchpin customizations.
+  -->
   <!-- Disallow long array syntax. -->
   <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
   <!-- Single statement on same line. -->
