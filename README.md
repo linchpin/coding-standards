@@ -2,7 +2,7 @@
 	<tr>
 		<td align="left" width="70%">
 			<strong>Linchpin Coding Standards</strong><br />
-			WordPress coding standards, enhanced for modern development.
+			Slightly opinionated WordPress coding standards for our approach to streamlined engineering and staying on the same page.
 		</td>
 		<td align="center" width="30%">
 			<a href="https://packagist.org/packages/linchpin/coding-standards"><img src="https://img.shields.io/packagist/v/linchpin/coding-standards.svg" /></a>
@@ -10,9 +10,10 @@
 	</tr>
 	<tr>
 		<td>
-			A <strong>Linchpin</strong> project.
+			A <strong><a href="https://linchpin.com">Linchpin</strong> playbook
 		</td>
 		<td align="center" width="30%">
+			<img src="https://assets.linchpin.com/linchpin-logo-primary.svg" width="100"  />
 		</td>
 	</tr>
 </table>
@@ -71,7 +72,7 @@ Patterns are relative to the directory that the `.phpcsignore` file lives in. On
 
 ### Advanced/Extending
 
-If you want to add further rules (such as WordPress.com VIP-specific rules) or customize PHPCS defaults, you can create your own custom standard file (e.g. `phpcs.ruleset.xml`):
+If you want to add further rules (such as WordPress.com VIP-specific rules) or customize PHPCS defaults, you can create your own custom standard file (e.g. `phpcs.xml.dist`):
 
 ```xml
 <?xml version="1.0"?>
@@ -105,7 +106,7 @@ vendor/bin/phpcs --standard=phpcs.ruleset.xml .
 You can also customise the rule to exclude elements if they aren't applicable to the project:
 
 ```xml
-<rule ref="vendor/humanmade/coding-standards">
+<rule ref="vendor/linchpin/coding-standards">
 	<!-- Disable a specific rule -->
 	<exclude name="Linchpin.Whitespace.MultipleEmptyLines" />
 </rule>

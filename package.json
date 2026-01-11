@@ -1,0 +1,72 @@
+{
+	"name": "@linchpin/coding-standards",
+	"version": "1.0.0",
+	"private": true,
+	"description": "Linchpin Coding Standards.",
+	"author": "Linchpin",
+	"license": "GPL-2.0-or-later",
+	"keywords": [
+		"phpcs",
+		"wordpress",
+		"coding-standards",
+		"linchpin"
+	],
+	"homepage": "https://github.com/linchpin/coding-standards",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/linchpin/coding-standards.git"
+	},
+	"bugs": {
+		"url": "https://github.com/linchpin/coding-standards/issues"
+	},
+	"packageManager": "npm@10.8.2",
+	"npmpackagejsonlint": {
+		"extends": "@wordpress/npm-package-json-lint-config",
+		"rules": {
+			"description-format": [
+				"error",
+				{
+					"requireCapitalFirstLetter": true,
+					"requireEndingPeriod": true
+				}
+			],
+			"prefer-no-devDependencies": "warning",
+			"require-publishConfig": "error",
+			"require-repository-directory": "error",
+			"valid-values-author": [
+				"error",
+				[
+					"Linchpin"
+				]
+			],
+			"valid-values-publishConfig": [
+				"error",
+				[
+					{
+						"access": "public"
+					}
+				]
+			]
+		},
+		"overrides": [
+			{
+				"patterns": [
+					"./package.json"
+				],
+				"rules": {
+					"require-publishConfig": "off",
+					"require-repository-directory": "off",
+					"prefer-no-devDependencies": "off"
+				}
+			}
+		]
+	},
+	"devDependencies": {
+		"@wordpress/npm-package-json-lint-config": "^4.43.0",
+		"npm-package-json-lint": "^9.0.0"
+	},
+	"scripts": {
+		"lint-pkg-json": "npmPkgJsonLint .",
+		"test": "npm run lint-pkg-json"
+	}
+}

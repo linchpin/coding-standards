@@ -1,0 +1,76 @@
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+name: Release
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Run release-please
+        id: release
+        uses: googleapis/release-please-action@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          config-file: release-please-config.json
+
+  # Update the readme but only when it's creating a new release, not during the build
+  update-readme:
+    needs: [release-please]
+    if: github.event_name != 'pull_request' && ! needs.release-please.outputs.release_created
+    uses: linchpin/actions/.github/workflows/update-readme.yml@v3
+    secrets: inherit
+
+  verify-release:
+    needs: [release-please]
+    runs-on: ubuntu-latest
+    if: ${{ needs.release-please.outputs.release_created }}
+    strategy:
+      matrix:
+        php-version:
+          - '8.1'
+          - '8.2'
+          - '8.3'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Get Version From Tag
+        id: get_version
+        uses: linchpin/action-get-latest-tag@v2.0.0
+        with:
+          semver_only: true
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          coverage: none
+
+      - name: Cache Composer dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/composer/files
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+
+      - name: Install Composer dependencies
+        run: composer install --ignore-platform-reqs --no-interaction --prefer-dist
+
+      - name: Run AllSniffs tests
+        run: vendor/bin/phpunit --no-configuration --bootstrap=tests/bootstrap.php --dont-report-useless-tests tests/AllSniffs.php
+
+      - name: Run FixtureTests
+        run: vendor/bin/phpunit --no-configuration --bootstrap=tests/bootstrap.php --dont-report-useless-tests tests/FixtureTests.php

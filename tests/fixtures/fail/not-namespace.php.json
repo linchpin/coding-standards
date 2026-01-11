@@ -1,0 +1,14 @@
+{
+	"6": [
+		{
+			"source": "Linchpin.Files.NamespaceDirectoryName.NameMismatch",
+			"type": "error"
+		}
+	],
+	"11": [
+		{
+			"source": "Linchpin.Files.FunctionFileName.WrongFile",
+			"type": "error"
+		}
+	]
+}

@@ -1,0 +1,6 @@
+<?php
+
+namespace Linchpin\CodingStandards\Tests;
+
+use Linchpin\Other;
+use WP_Post;

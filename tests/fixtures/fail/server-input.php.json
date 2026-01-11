@@ -1,0 +1,16 @@
+{
+	"6": [
+		{
+			"source": "Linchpin.Security.ValidatedSanitizedInput.InputNotValidated",
+			"type": "error"
+		},
+		{
+			"source": "Linchpin.Security.ValidatedSanitizedInput.MissingUnslash",
+			"type": "error"
+		},
+		{
+			"source": "Linchpin.Security.ValidatedSanitizedInput.InputNotSanitized",
+			"type": "error"
+		}
+	]
+}

@@ -1,0 +1,14 @@
+{
+	"3": [
+		{
+			"source": "Linchpin.PHP.Isset.MultipleArguments",
+			"type": "warning"
+		}
+	],
+	"4": [
+		{
+			"source": "Linchpin.PHP.Isset.MultipleArguments",
+			"type": "warning"
+		}
+	]
+}

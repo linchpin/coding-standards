@@ -1,0 +1,20 @@
+{
+	"4": [
+		{
+			"source": "Linchpin.Performance.SlowOrderBy.slow_order",
+			"type": "warning"
+		}
+	],
+	"7": [
+		{
+			"source": "Linchpin.Performance.SlowOrderBy.slow_order",
+			"type": "warning"
+		}
+	],
+	"10": [
+		{
+			"source": "Linchpin.Performance.SlowOrderBy.slow_order",
+			"type": "warning"
+		}
+	]
+}

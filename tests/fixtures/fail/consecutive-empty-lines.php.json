@@ -1,0 +1,20 @@
+{
+	"5": [
+		{
+			"source": "Linchpin.Whitespace.MultipleEmptyLines.MultipleEmptyLines",
+			"type": "error"
+		}
+	],
+	"7": [
+		{
+			"source": "Linchpin.Functions.NamespacedFunctions.MissingNamespace",
+			"type": "error"
+		}
+	],
+	"9": [
+		{
+			"source": "Linchpin.Whitespace.MultipleEmptyLines.MultipleEmptyLines",
+			"type": "error"
+		}
+	]
+}
