@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.0.5](https://github.com/linchpin/coding-standards/compare/v1.0.4...v1.0.5) (2026-01-12)
+
+
+### Miscellaneous Chores
+
+* **NO-TASK:** Adjust default rulesets ([60f4868](https://github.com/linchpin/coding-standards/commit/60f48689abafd91db195dc9f38ad88641bf2da88))
+* **NO-TASK:** Adjust default rulesets ([28445b8](https://github.com/linchpin/coding-standards/commit/28445b8504baa597bbdb0c93d864bdde1f1bc5ad))
+* **NO-TASK:** Minor code formatting update ([66a8a75](https://github.com/linchpin/coding-standards/commit/66a8a75b72f70d8a959d41d014691195fa87b736))
+* **NO-TASK:** Minor code formatting update ([c25440b](https://github.com/linchpin/coding-standards/commit/c25440bd9c4cd5305bc17179a500fa88ffe50172))
+
 ## [1.0.4](https://github.com/linchpin/coding-standards/compare/v1.0.3...v1.0.4) (2026-01-12)
 
 
