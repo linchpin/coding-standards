@@ -35,10 +35,10 @@ class NonceVerificationSniff extends WPCSNonceVerificationSniff {
 	/**
 	 * Override init to override config and duplicate any ignores.
 	 *
-	 * @param PhpcsFile $phpcsFile
+	 * @param PhpcsFile $phpcsFile The file being scanned.
 	 */
-	public function init( PhpcsFile $file ) {
-		parent::init( $file );
+	public function init( PhpcsFile $phpcsFile ) {
+		parent::init( $phpcsFile );
 
 		if ( $this->allowQueryVariables ) {
 			unset( $this->superglobals['$_GET'] );

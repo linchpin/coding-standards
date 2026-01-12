@@ -64,7 +64,7 @@ class EscapeOutputSniff extends WPCSEscapeOutputSniff {
 	/**
 	 * Override init to duplicate any ignores.
 	 *
-	 * @param PhpcsFile $phpcsFile
+	 * @param PhpcsFile $phpcsFile The file being scanned.
 	 */
 	protected function init( PhpcsFile $phpcsFile ) {
 		parent::init( $phpcsFile );

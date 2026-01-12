@@ -11,6 +11,9 @@ use Linchpin\CodingStandards\Sniffs\ExtraSniffCode;
 use PHP_CodeSniffer\Files\File as PhpcsFile;
 use WordPressCS\WordPress\Sniffs\Security\ValidatedSanitizedInputSniff as WPCSValidatedSanitizedInputSniff;
 
+/**
+ * Checks for validated and sanitized input.
+ */
 class ValidatedSanitizedInputSniff extends WPCSValidatedSanitizedInputSniff {
 
 	use ExtraSniffCode;
@@ -42,7 +45,7 @@ class ValidatedSanitizedInputSniff extends WPCSValidatedSanitizedInputSniff {
 	/**
 	 * Override init to duplicate any ignores.
 	 *
-	 * @param PhpcsFile $phpcsFile
+	 * @param PhpcsFile $phpcsFile The file being scanned.
 	 */
 	protected function init( PhpcsFile $phpcsFile ) {
 		parent::init( $phpcsFile );
@@ -53,7 +56,7 @@ class ValidatedSanitizedInputSniff extends WPCSValidatedSanitizedInputSniff {
 	/**
 	 * Process a token for validation and sanitisation.
 	 *
-	 * @param  int $stackPtr
+	 * @param  int $stackPtr The position of the current token in the stack.
 	 * @return void
 	 */
 	public function process_token( $stackPtr ) {

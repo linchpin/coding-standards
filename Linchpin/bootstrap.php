@@ -10,6 +10,7 @@ namespace Linchpin\CodingStandards\Sniffs;
 /**
  * Is the ignore file line a functional one?
  *
+ * @param string $line The line to check.
  * @return bool True for real exclusion lines, false for comments or empty lines.
  */
 function is_functional_line( $line ) {
@@ -28,6 +29,7 @@ function is_functional_line( $line ) {
  * @return string[] List of ignore rules.
  */
 function get_ignores_from_file( $file, $directory ) {
+	// phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
 	$content = file_get_contents( $file );
 	if ( empty( $content ) ) {
 		return [];
@@ -79,13 +81,13 @@ function attach_to_runner( $runner ) {
 			continue;
 		}
 		if ( PHP_CODESNIFFER_VERBOSITY > 1 ) {
-			echo "\tAdding exclusion rules from $ignore_file\n";
+			echo "\tAdding exclusion rules from $ignore_file\n"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 
 		$extra_ignores = get_ignores_from_file( $ignore_file, $directory );
 		if ( PHP_CODESNIFFER_VERBOSITY > 1 ) {
 			foreach ( $extra_ignores as $rule ) {
-				echo "\t\t=> $rule\n";
+				echo "\t\t=> $rule\n"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 		}
 
