@@ -1,4 +1,9 @@
 <?php
+/**
+ * Linchpin Coding Standards.
+ *
+ * @package Linchpin\CodingStandards
+ */
 
 namespace Linchpin\CodingStandards\Tests\Files;
 
@@ -11,67 +16,65 @@ use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
  *
  * @group linchpin-sniffs
  */
-class NamespaceDirectoryNameUnitTest extends AbstractSniffUnitTest
-{
-    /**
-     * Get files to test against.
-     *
-     * Overridden from base to use the directory instead.
-     */
-    protected function getTestFiles( $test_base_dir )
-    {
-        $test_base_dir = rtrim($test_base_dir, '.');
-        $test_files = [];
+class NamespaceDirectoryNameUnitTest extends AbstractSniffUnitTest {
 
-        $di = new RecursiveIteratorIterator(
-            new RecursiveDirectoryIterator($test_base_dir)
-        );
+	/**
+	 * Get files to test against.
+	 *
+	 * Overridden from base to use the directory instead.
+	 *
+	 * @param string $test_base_dir The base directory to search for test files.
+	 */
+	protected function getTestFiles( $test_base_dir ) {
+		$test_base_dir = rtrim( $test_base_dir, '.' );
+		$test_files    = [];
 
-        foreach ( $di as $file ) {
-            if (! $file->isFile() ) {
-                continue;
-            }
+		$di = new RecursiveIteratorIterator(
+			new RecursiveDirectoryIterator( $test_base_dir )
+		);
 
-            $test_files[] = $file->getPathname();
-        }
+		foreach ( $di as $file ) {
+			if ( ! $file->isFile() ) {
+				continue;
+			}
 
-        // Put them in order.
-        sort($test_files);
+			$test_files[] = $file->getPathname();
+		}
 
-        return $test_files;
-    }
+		// Put them in order.
+		sort( $test_files );
 
-    /**
-     * Returns the lines where errors should occur.
-     *
-     * @return array <int line number> => <int number of errors>
-     */
-    public function getErrorList()
-    {
-        $file = func_get_arg(0);
-        $pass = [
-        'grinder.php',
-        'namespace.php',
-        'camelcased-namespace.php',
-        'underscored-namespace.php',
-        ];
-        if (in_array($file, $pass, true) ) {
-            return [];
-        } else {
-            return [
-            3 => 1,
-            ];
-        }
-    }
+		return $test_files;
+	}
 
-    /**
-     * Returns the lines where warnings should occur.
-     *
-     * @return array <int line number> => <int number of warnings>
-     */
-    public function getWarningList()
-    {
-        return [];
-    }
+	/**
+	 * Returns the lines where errors should occur.
+	 *
+	 * @return array <int line number> => <int number of errors>
+	 */
+	public function getErrorList() {
+		$file = func_get_arg( 0 );
+		$pass = [
+			'grinder.php',
+			'namespace.php',
+			'camelcased-namespace.php',
+			'underscored-namespace.php',
+		];
+		if ( in_array( $file, $pass, true ) ) {
+			return [];
+		} else {
+			return [
+				3 => 1,
+			];
+		}
+	}
 
+	/**
+	 * Returns the lines where warnings should occur.
+	 *
+	 * @return array <int line number> => <int number of warnings>
+	 */
+	public function getWarningList() {
+		return [];
+	}
 }

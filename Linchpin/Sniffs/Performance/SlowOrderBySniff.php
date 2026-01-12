@@ -1,4 +1,9 @@
 <?php
+/**
+ * Linchpin Coding Standards.
+ *
+ * @package Linchpin\CodingStandards
+ */
 
 namespace Linchpin\CodingStandards\Sniffs\Performance;
 
@@ -21,15 +26,15 @@ class SlowOrderBySniff extends AbstractArrayAssignmentRestrictionsSniff {
 	 * @return array
 	 */
 	public function getGroups() {
-		return array(
-			'slow_order' => array(
+		return [
+			'slow_order' => [
 				'type'    => 'warning',
 				'message' => 'Ordering query results by %s is not performant.',
-				'keys'    => array(
+				'keys'    => [
 					'orderby',
-				),
-			),
-		);
+				],
+			],
+		];
 	}
 
 	/**

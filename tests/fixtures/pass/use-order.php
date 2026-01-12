@@ -4,7 +4,7 @@ use Foo\Bar;
 use Foo\Baz as Zztop;
 use Some_Trait;
 
-require( 'some/file/that/exists.php' );
+require 'some/file/that/exists.php';
 
 $foo = 1;
 
@@ -24,7 +24,7 @@ $c = function ( ...$i ) use ( $foo ) {
 	return $foo + 1;
 };
 
-$c = function () use ( $foo ) : int {
+$c = function () use ( $foo ): int {
 	return $foo + 1;
 };
 
@@ -32,15 +32,19 @@ $c = function ( ...$i ) use ( $foo ) {
 	return $foo + 1;
 };
 
-$c = function ( ...$i ) use ( $foo ) : int {
+$c = function ( ...$i ) use ( $foo ): int {
 	return $foo + 1;
 };
 
-add_action( 'init', function () use ( $foo ) {
-	return new Zztop( $foo + 1 );
-}, 1000 );
+add_action(
+	'init',
+	function () use ( $foo ) {
+		return new Zztop( $foo + 1 );
+	},
+	1000
+);
 
-$c = function() {
+$c = function () {
 	return true;
 };
 

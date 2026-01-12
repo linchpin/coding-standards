@@ -6,6 +6,8 @@
  * known errors or known passing conditions. We run these tests
  * against said fixture files as it's closer to real-world conditions
  * than isolated unit tests and provides another layer of security.
+ *
+ * @package Linchpin\CodingStandards
  */
 
 namespace Linchpin\CodingStandards\Tests;
@@ -22,188 +24,186 @@ use RecursiveIteratorIterator;
  *
  * @group fixtures
  */
-class FixtureTests extends TestCase
-{
-    /**
-     * Config instance.
-     *
-     * @var \PHP_CodeSniffer\Config
-     */
-    protected $config;
+class FixtureTests extends TestCase {
 
-    /**
-     * Ruleset instance.
-     *
-     * @var \PHP_CodeSniffer\Ruleset
-     */
-    protected $ruleset;
+	/**
+	 * Config instance.
+	 *
+	 * @var \PHP_CodeSniffer\Config
+	 */
+	protected $config;
 
-    /**
-     * Get a lit of files from a directory path.
-     *
-     * @param  string $directory Directory to recursively look through.
-     * @return array List of files to run.
-     */
-    public static function get_files_from_dir( string $directory )
-    {
-        $files = [];
-        $iterator = new RecursiveIteratorIterator(
-            new RecursiveDirectoryIterator($directory)
-        );
+	/**
+	 * Ruleset instance.
+	 *
+	 * @var \PHP_CodeSniffer\Ruleset
+	 */
+	protected $ruleset;
 
-        foreach ( $iterator as $path => $file ) {
-            if (! $file->isFile() || $file->getExtension() === 'json' ) {
-                continue;
-            }
+	/**
+	 * Get a lit of files from a directory path.
+	 *
+	 * @param  string $directory Directory to recursively look through.
+	 * @return array List of files to run.
+	 */
+	public static function get_files_from_dir( string $directory ) {
+		$files    = [];
+		$iterator = new RecursiveIteratorIterator(
+			new RecursiveDirectoryIterator( $directory )
+		);
 
-            $files[] = [ $path ];
-        }
+		foreach ( $iterator as $path => $file ) {
+			if ( ! $file->isFile() || $file->getExtension() === 'json' ) {
+				continue;
+			}
 
-        return $files;
-    }
+			$files[] = [ $path ];
+		}
 
-    /**
-     * Get files from the pass fixtures directory.
-     *
-     * @return array List of parameters to provide.
-     */
-    public static function failing_files()
-    {
-        $directory = __DIR__ . '/fixtures/fail';
+		return $files;
+	}
 
-        return static::get_files_from_dir($directory);
-    }
+	/**
+	 * Get files from the pass fixtures directory.
+	 *
+	 * @return array List of parameters to provide.
+	 */
+	public static function failing_files() {
+		$directory = __DIR__ . '/fixtures/fail';
 
-    /**
-     * Get files from the pass fixtures directory.
-     *
-     * @return array List of parameters to provide.
-     */
-    public static function passing_files()
-    {
-        $directory = __DIR__ . '/fixtures/pass';
+		return static::get_files_from_dir( $directory );
+	}
 
-        return static::get_files_from_dir($directory);
-    }
+	/**
+	 * Get files from the pass fixtures directory.
+	 *
+	 * @return array List of parameters to provide.
+	 */
+	public static function passing_files() {
+		$directory = __DIR__ . '/fixtures/pass';
 
-    /**
-     * Setup our ruleset.
-     */
-    public function setUp(): void
-    {
-        $this->config            = new Config();
-        $this->config->cache     = false;
-        $this->config->standards = [ 'Linchpin' ];
+		return static::get_files_from_dir( $directory );
+	}
 
-        // Keeping the tabWidth set inline with WPCS.
-        $this->config->tabWidth = 4;
+	/**
+	 * Setup our ruleset.
+	 */
+	public function setUp(): void {
+		$this->config            = new Config();
+		$this->config->cache     = false;
+		$this->config->standards = [ 'Linchpin' ];
 
-        // We want to setup our tests to only load our standards in for testing.
-        $this->config->sniffs = [
-        'Linchpin.Classes.OnlyClassInFile',
-        'Linchpin.Files.ClassFileName',
-        'Linchpin.Files.FunctionFileName',
-        'Linchpin.Files.NamespaceDirectoryName',
-        'Linchpin.Functions.NamespacedFunctions',
-        'Linchpin.Layout.Order',
-        'Linchpin.Namespaces.NoLeadingSlashOnUse',
-        'Linchpin.Performance.SlowMetaQuery',
-        'Linchpin.Performance.SlowOrderBy',
-        'Linchpin.PHP.Isset',
-        'Linchpin.Security.EscapeOutput',
-        'Linchpin.Security.NonceVerification',
-        'Linchpin.Security.ValidatedSanitizedInput',
-        'Linchpin.Whitespace.MultipleEmptyLines',
-        ];
+		// Keeping the tabWidth set inline with WPCS.
+		$this->config->tabWidth = 4;
 
-        $this->ruleset = new Ruleset($this->config);
+		// We want to setup our tests to only load our standards in for testing.
+		$this->config->sniffs = [
+			'Linchpin.Classes.OnlyClassInFile',
+			'Linchpin.Files.ClassFileName',
+			'Linchpin.Files.FunctionFileName',
+			'Linchpin.Files.NamespaceDirectoryName',
+			'Linchpin.Functions.NamespacedFunctions',
+			'Linchpin.Layout.Order',
+			'Linchpin.Namespaces.NoLeadingSlashOnUse',
+			'Linchpin.Performance.SlowMetaQuery',
+			'Linchpin.Performance.SlowOrderBy',
+			'Linchpin.PHP.Isset',
+			'Linchpin.Security.EscapeOutput',
+			'Linchpin.Security.NonceVerification',
+			'Linchpin.Security.ValidatedSanitizedInput',
+			'Linchpin.Whitespace.MultipleEmptyLines',
+		];
 
-        // Set configuration as needed too.
-        $this->ruleset->setSniffProperty(
-            'Linchpin\\CodingStandards\\Sniffs\\Security\\EscapeOutputSniff', 'customAutoEscapedFunctions', [
-            'scope' => 'sniff',
-            'value' => [
-            'my_custom_func',
-            'another_func',
-            ]
-            ] 
-        );
-        $this->ruleset->setSniffProperty(
-            'Linchpin\\CodingStandards\\Sniffs\\Security\\NonceVerificationSniff', 'allowQueryVariables', [
-            'scope' => 'sniff',
-            'value' => true
-            ] 
-        );
-    }
+		$this->ruleset = new Ruleset( $this->config );
 
-    /**
-     * @dataProvider passing_files
-     */
-    public function test_passing_files( $file )
-    {
-        $phpcsFile = new LocalFile($file, $this->ruleset, $this->config);
-        $phpcsFile->process();
+		// Set configuration as needed too.
+		$this->ruleset->setSniffProperty(
+			'Linchpin\\CodingStandards\\Sniffs\\Security\\EscapeOutputSniff',
+			'customAutoEscapedFunctions',
+			[
+				'scope' => 'sniff',
+				'value' => [
+					'my_custom_func',
+					'another_func',
+				],
+			]
+		);
+		$this->ruleset->setSniffProperty(
+			'Linchpin\\CodingStandards\\Sniffs\\Security\\NonceVerificationSniff',
+			'allowQueryVariables',
+			[
+				'scope' => 'sniff',
+				'value' => true,
+			]
+		);
+	}
 
-        $rel_file = substr($file, strlen(__DIR__));
-        $foundErrors = $phpcsFile->getErrors();
-        $this->assertEquals([], $foundErrors, sprintf('File %s should not contain any errors', $rel_file));
-        $foundWarnings = $phpcsFile->getWarnings();
-        $this->assertEquals([], $foundWarnings, sprintf('File %s should not contain any warnings', $rel_file));
-    }
+	/**
+	 * @dataProvider passing_files
+	 */
+	public function test_passing_files( $file ) {
+		$phpcsFile = new LocalFile( $file, $this->ruleset, $this->config );
+		$phpcsFile->process();
 
-    /**
-     * Test failing files.
-     *
-     * @param string $file File to test.
-     * 
-     * @return void
-     *
-     * @dataProvider failing_files
-     */
-    public function test_failing_files( $file ): void
-    {
-        $phpcsFile = new LocalFile($file, $this->ruleset, $this->config);
-        $phpcsFile->process();
+		$rel_file    = substr( $file, strlen( __DIR__ ) );
+		$foundErrors = $phpcsFile->getErrors();
+		$this->assertEquals( [], $foundErrors, sprintf( 'File %s should not contain any errors', $rel_file ) );
+		$foundWarnings = $phpcsFile->getWarnings();
+		$this->assertEquals( [], $foundWarnings, sprintf( 'File %s should not contain any warnings', $rel_file ) );
+	}
 
-        $rel_file = substr($file, strlen(__DIR__));
-        $foundErrors = $phpcsFile->getErrors();
-        $foundWarnings = $phpcsFile->getWarnings();
+	/**
+	 * Test failing files.
+	 *
+	 * @param string $file File to test.
+	 *
+	 * @return void
+	 *
+	 * @dataProvider failing_files
+	 */
+	public function test_failing_files( $file ): void {
+		$phpcsFile = new LocalFile( $file, $this->ruleset, $this->config );
+		$phpcsFile->process();
 
-        $expected_file = $file . '.json';
-        $expected = json_decode(file_get_contents($expected_file), true);
+		$rel_file      = substr( $file, strlen( __DIR__ ) );
+		$foundErrors   = $phpcsFile->getErrors();
+		$foundWarnings = $phpcsFile->getWarnings();
 
-        $this->assertEquals(
-            JSON_ERROR_NONE,
-            json_last_error(),
-            sprintf(
-                'Expected JSON should be correctly parsed: %s',
-                json_last_error_msg()
-            )
-        );
+		$expected_file = $file . '.json';
+		$expected      = json_decode( file_get_contents( $expected_file ), true );
 
-        $found = [];
-        foreach ( $foundErrors as $line => $columns ) {
-            foreach ( $columns as $column => $errors ) {
-                foreach ( $errors as $error ) {
-                    $found[ $line ][] = [
-                    'source' => $error['source'],
-                    'type'   => 'error',
-                    ];
-                }
-            }
-        }
-        foreach ( $foundWarnings as $line => $columns ) {
-            foreach ( $columns as $column => $errors ) {
-                foreach ( $errors as $error ) {
-                    $found[ $line ][] = [
-                     'source' => $error['source'],
-                     'type'   => 'warning',
-                    ];
-                }
-            }
-        }
+		$this->assertEquals(
+			JSON_ERROR_NONE,
+			json_last_error(),
+			sprintf(
+				'Expected JSON should be correctly parsed: %s',
+				json_last_error_msg()
+			)
+		);
 
-        $this->assertEquals($expected, $found, sprintf('File %s should only contain specified errors', $rel_file));
-        // var_dump( $foundErrors );
-    }
+		$found = [];
+		foreach ( $foundErrors as $line => $columns ) {
+			foreach ( $columns as $column => $errors ) {
+				foreach ( $errors as $error ) {
+					$found[ $line ][] = [
+						'source' => $error['source'],
+						'type'   => 'error',
+					];
+				}
+			}
+		}
+		foreach ( $foundWarnings as $line => $columns ) {
+			foreach ( $columns as $column => $errors ) {
+				foreach ( $errors as $error ) {
+					$found[ $line ][] = [
+						'source' => $error['source'],
+						'type'   => 'warning',
+					];
+				}
+			}
+		}
+
+		$this->assertEquals( $expected, $found, sprintf( 'File %s should only contain specified errors', $rel_file ) );
+		// var_dump( $foundErrors );
+	}
 }

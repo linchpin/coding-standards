@@ -1,4 +1,9 @@
 <?php
+/**
+ * Linchpin Coding Standards.
+ *
+ * @package Linchpin\CodingStandards
+ */
 
 namespace Linchpin\CodingStandards\Sniffs\Classes;
 
@@ -32,7 +37,7 @@ class OnlyClassInFileSniff implements Sniff {
 
 		$tokens = $phpcsFile->getTokens();
 
-		$classish = [ T_CLASS, T_INTERFACE, T_TRAIT ];
+		$classish    = [ T_CLASS, T_INTERFACE, T_TRAIT ];
 		$first_class = $phpcsFile->findNext( $classish, 0 );
 		if ( empty( $first_class ) ) {
 			// No class in file.
@@ -45,7 +50,7 @@ class OnlyClassInFileSniff implements Sniff {
 			// ...then check for functions at the top-level.
 			$other_declaration_start = 0;
 			do {
-				$other_declaration = $phpcsFile->findNext( [ T_FUNCTION ], $other_declaration_start );
+				$other_declaration       = $phpcsFile->findNext( [ T_FUNCTION ], $other_declaration_start );
 				$other_declaration_start = $other_declaration + 1;
 			} while ( $other_declaration && $tokens[ $other_declaration ]['level'] > 0 );
 		}
@@ -56,10 +61,10 @@ class OnlyClassInFileSniff implements Sniff {
 				$tokens[ $other_declaration ]['content'],
 				$tokens[ $other_declaration ]['line'],
 			];
-			$phpcsFile->addWarning($error, 0, 'FoundMultipleDeclarations', $data);
-			$phpcsFile->recordMetric($stackPtr, 'Multiple declarations', 'yes');
+			$phpcsFile->addWarning( $error, 0, 'FoundMultipleDeclarations', $data );
+			$phpcsFile->recordMetric( $stackPtr, 'Multiple declarations', 'yes' );
 		} else {
-			$phpcsFile->recordMetric($stackPtr, 'Multiple declarations', 'no');
+			$phpcsFile->recordMetric( $stackPtr, 'Multiple declarations', 'no' );
 		}
 
 		// Ignore the rest of the file.

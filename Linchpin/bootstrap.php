@@ -1,4 +1,9 @@
 <?php
+/**
+ * Linchpin Coding Standards.
+ *
+ * @package Linchpin\CodingStandards
+ */
 
 namespace Linchpin\CodingStandards\Sniffs;
 
@@ -35,14 +40,17 @@ function get_ignores_from_file( $file, $directory ) {
 	$lines = array_filter( $lines, __NAMESPACE__ . '\\is_functional_line' );
 
 	// Make the ignore patterns absolute.
-	$lines = array_map( function ( $rule ) use ( $directory ) {
-		// Strip leading ./
-		if ( substr( $rule, 0, 2 ) === './' ) {
-			$rule = substr( $rule, 2 );
-		}
+	$lines = array_map(
+		function ( $rule ) use ( $directory ) {
+			// Strip leading ./
+			if ( substr( $rule, 0, 2 ) === './' ) {
+					$rule = substr( $rule, 2 );
+			}
 
-		return $directory . DIRECTORY_SEPARATOR . $rule;
-	}, $lines );
+			return $directory . DIRECTORY_SEPARATOR . $rule;
+		},
+		$lines
+	);
 
 	return $lines;
 }
@@ -53,7 +61,7 @@ function get_ignores_from_file( $file, $directory ) {
  * @param \PHP_CodeSniffer\Runner $runner CodeSniffer runner instance.
  */
 function attach_to_runner( $runner ) {
-	$paths = $runner->config->files;
+	$paths   = $runner->config->files;
 	$ignored = $runner->config->ignored;
 
 	// Find exclusion files.
@@ -65,7 +73,7 @@ function attach_to_runner( $runner ) {
 		}
 
 		// Find an ignore file.
-		$directory = $path;
+		$directory   = $path;
 		$ignore_file = $directory . '/.phpcsignore';
 		if ( ! file_exists( $ignore_file ) ) {
 			continue;
@@ -82,7 +90,7 @@ function attach_to_runner( $runner ) {
 		}
 
 		$did_change = true;
-		$ignored = array_merge( $ignored, $extra_ignores );
+		$ignored    = array_merge( $ignored, $extra_ignores );
 	}
 
 	if ( $did_change ) {

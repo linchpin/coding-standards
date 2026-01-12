@@ -7,30 +7,28 @@ use WP_Post;
 /**
  * Test function.
  */
-function run_test( $tester )
-{
-    $foo = get_foo();
+function run_test( $tester ) {
+	$foo = get_foo();
 
-    foreach ( $foo as $x => &$y ) {
-        if (! $y ) {
-            continue;
-        }
+	foreach ( $foo as $x => &$y ) {
+		if ( ! $y ) {
+			continue;
+		}
 
-        echo esc_html($y);
-    }
+		echo esc_html( $y );
+	}
 
-    return $foo;
+	return $foo;
 }
 
 /**
  * Anonymous functions with `use` should not trigger an order warning.
  */
-function anonymous_function()
-{
-    $x = 0;
+function anonymous_function() {
+	$x = 0;
 
-    return function () use ( $x ) {
-        $x++;
-        return new WP_Post($x);
-    };
+	return function () use ( $x ) {
+		++$x;
+		return new WP_Post( $x );
+	};
 }
