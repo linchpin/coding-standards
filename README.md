@@ -120,3 +120,5 @@ To find out what these codes are, specify `-s` when running `phpcs`, and the cod
 ## Included Checks
 
 The phpcs standard is based upon the `WordPress-VIP` standard from [WordPress Coding Standards](https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards), with [customisation and additions](Linchpin/ruleset.xml) to match our style guide.
+
+![Linchpin an award winning digital agency building immersive, high performing web experiences](https://assets.linchpin.com/github/linchpin-github-repo-banner.jpg)
