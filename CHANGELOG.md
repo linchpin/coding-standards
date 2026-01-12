@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.0.4](https://github.com/linchpin/coding-standards/compare/v1.0.3...v1.0.4) (2026-01-12)
+
+
+### Bug Fixes
+
+* **NO-TASK:** Add coding standards from mantle and linchpin blocks ([b3f4a9b](https://github.com/linchpin/coding-standards/commit/b3f4a9bd5f391b9be9d22bfd2e53eac0b7a6577e))
+* **NO-TASK:** Add coding standards from mantle and linchpin blocks ([99c50f2](https://github.com/linchpin/coding-standards/commit/99c50f2eac17f0d52cce502c772b018586e3d6d1))
+* **NO-TASK:** Minor code formatting ([9286664](https://github.com/linchpin/coding-standards/commit/928666476c552844e1df925c4c8730aead63d832))
+
+
+### Miscellaneous Chores
+
+* **NO-TASK:** cleanup coding standards ([26d2ac0](https://github.com/linchpin/coding-standards/commit/26d2ac086d2a86feee58038cf8eb2845b6af18c4))
+* **NO-TASK:** ease some validation checks ([ef3da9c](https://github.com/linchpin/coding-standards/commit/ef3da9c82a2f003bb75a0865c5d3824b49cdf8a1))
+
 ## [1.0.3](https://github.com/linchpin/coding-standards/compare/v1.0.2...v1.0.3) (2026-01-12)
 
 
