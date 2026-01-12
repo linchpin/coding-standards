@@ -2,7 +2,7 @@
 
 use Foo\Bar;
 
-require( 'some/file/that/exists.php' );
+require 'some/file/that/exists.php';
 
 $foo = 1;
 

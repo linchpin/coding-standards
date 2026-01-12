@@ -1,4 +1,9 @@
 <?php
+/**
+ * Linchpin Coding Standards.
+ *
+ * @package Linchpin\CodingStandards
+ */
 
 namespace Linchpin\CodingStandards\Sniffs\Security;
 
@@ -14,58 +19,56 @@ use WordPressCS\WordPress\Sniffs\Security\EscapeOutputSniff as WPCSEscapeOutputS
  *
  * @see https://github.com/WordPress/WordPress-Coding-Standards/issues/1864
  */
-class EscapeOutputSniff extends WPCSEscapeOutputSniff
-{
-    use ExtraSniffCode;
+class EscapeOutputSniff extends WPCSEscapeOutputSniff {
 
-    /**
-     * Allowed functions which are treated by WPCS as printing functions.
-     *
-     * @var array
-     */
-    protected $safePrintingFunctions = [
-    '_deprecated_argument' => true,
-    '_deprecated_constructor' => true,
-    '_deprecated_file' => true,
-    '_deprecated_function' => true,
-    '_deprecated_hook' => true,
-    '_doing_it_wrong' => true,
-    'trigger_error' => true,
-    'user_error' => true,
-    ];
+	use ExtraSniffCode;
 
-    /**
-     * Printing functions that incorporate unsafe values.
-     *
-     * This is overridden from the parent class to allow unescaped
-     * translated text.
-     *
-     * @var array
-     */
-    protected $unsafePrintingFunctions = [];
+	/**
+	 * Allowed functions which are treated by WPCS as printing functions.
+	 *
+	 * @var array
+	 */
+	protected $safePrintingFunctions = [
+		'_deprecated_argument'    => true,
+		'_deprecated_constructor' => true,
+		'_deprecated_file'        => true,
+		'_deprecated_function'    => true,
+		'_deprecated_hook'        => true,
+		'_doing_it_wrong'         => true,
+		'trigger_error'           => true,
+		'user_error'              => true,
+	];
 
-    /**
-     * Constructor.
-     *
-     * Removes non-printing functions from the property.
-     */
-    public function __construct()
-    {
-        // Remove error logging functions from output functions.
-        foreach ( $this->safePrintingFunctions as $function => $val ) {
-            unset($this->printingFunctions[ $function ]);
-        }
-    }
+	/**
+	 * Printing functions that incorporate unsafe values.
+	 *
+	 * This is overridden from the parent class to allow unescaped
+	 * translated text.
+	 *
+	 * @var array
+	 */
+	protected $unsafePrintingFunctions = [];
 
-    /**
-     * Override init to duplicate any ignores.
-     *
-     * @param PhpcsFile $phpcsFile
-     */
-    protected function init( PhpcsFile $phpcsFile )
-    {
-        parent::init($phpcsFile);
+	/**
+	 * Constructor.
+	 *
+	 * Removes non-printing functions from the property.
+	 */
+	public function __construct() {
+		// Remove error logging functions from output functions.
+		foreach ( $this->safePrintingFunctions as $function => $val ) {
+			unset( $this->printingFunctions[ $function ] );
+		}
+	}
 
-        $this->duplicate_ignores('WordPress.Security.EscapeOutput');
-    }
+	/**
+	 * Override init to duplicate any ignores.
+	 *
+	 * @param PhpcsFile $phpcsFile The file being scanned.
+	 */
+	protected function init( PhpcsFile $phpcsFile ) {
+		parent::init( $phpcsFile );
+
+		$this->duplicate_ignores( 'WordPress.Security.EscapeOutput' );
+	}
 }

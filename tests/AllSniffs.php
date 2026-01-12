@@ -2,6 +2,7 @@
 /**
  * A test class for testing all sniffs for installed standards.
  *
+ * @package   Linchpin\CodingStandards
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
@@ -19,69 +20,67 @@ use RecursiveIteratorIterator;
 /**
  * Class AllSniffs
  */
-class AllSniffs
-{
-    const TEST_SUFFIX = 'UnitTest.php';
+class AllSniffs {
 
-    /**
-     * Prepare the test runner.
-     *
-     * @return void
-     */
-    public static function main()
-    {
-        TestRunner::run(self::suite());
-    }
+	const TEST_SUFFIX = 'UnitTest.php';
 
-    /**
-     * Add all sniff unit tests into a test suite.
-     *
-     * Sniff unit tests are found by recursing through the 'Tests' directory
-     * of each installed coding standard.
-     *
-     * @return \PHPUnit\Framework\TestSuite
-     */
-    public static function suite()
-    {
-        $GLOBALS['PHP_CODESNIFFER_SNIFF_CODES']   = array();
-        $GLOBALS['PHP_CODESNIFFER_FIXABLE_CODES'] = array();
-        $GLOBALS['PHP_CODESNIFFER_SNIFF_CASE_FILES'] = array();
+	/**
+	 * Prepare the test runner.
+	 *
+	 * @return void
+	 */
+	public static function main() {
+		TestRunner::run( self::suite() );
+	}
 
-        $suite = new TestSuite('Linchpin Standards');
+	/**
+	 * Add all sniff unit tests into a test suite.
+	 *
+	 * Sniff unit tests are found by recursing through the 'Tests' directory
+	 * of each installed coding standard.
+	 *
+	 * @return \PHPUnit\Framework\TestSuite
+	 */
+	public static function suite() {
+		$GLOBALS['PHP_CODESNIFFER_SNIFF_CODES']      = [];
+		$GLOBALS['PHP_CODESNIFFER_FIXABLE_CODES']    = [];
+		$GLOBALS['PHP_CODESNIFFER_SNIFF_CASE_FILES'] = [];
 
-        $standards_dir = dirname(__DIR__);
-        $all_details = Standards::getInstalledStandardDetails(false, $standards_dir);
-        $details = $all_details['Linchpin'];
+		$suite = new TestSuite( 'Linchpin Standards' );
 
-        Autoload::addSearchPath($details['path'], $details['namespace']);
+		$standards_dir = dirname( __DIR__ );
+		$all_details   = Standards::getInstalledStandardDetails( false, $standards_dir );
+		$details       = $all_details['Linchpin'];
 
-        $test_dir = $details['path'] . '/Tests/';
-        if (is_dir($test_dir) === false ) {
-            // No tests for this standard.
-            return $suite;
-        }
+		Autoload::addSearchPath( $details['path'], $details['namespace'] );
 
-        $di = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($test_dir));
+		$test_dir = $details['path'] . '/Tests/';
+		if ( is_dir( $test_dir ) === false ) {
+			// No tests for this standard.
+			return $suite;
+		}
 
-        foreach ( $di as $file ) {
-            $filename = $file->getFilename();
+		$di = new RecursiveIteratorIterator( new RecursiveDirectoryIterator( $test_dir ) );
 
-            // Skip hidden files.
-            if (substr($filename, 0, 1) === '.' ) {
-                continue;
-            }
+		foreach ( $di as $file ) {
+			$filename = $file->getFilename();
 
-            // Tests must end with "UnitTest.php"
-            if (substr($filename, -1 * strlen(static::TEST_SUFFIX)) !== static::TEST_SUFFIX ) {
-                continue;
-            }
+			// Skip hidden files.
+			if ( substr( $filename, 0, 1 ) === '.' ) {
+				continue;
+			}
 
-            $className = Autoload::loadFile($file->getPathname());
-            $GLOBALS['PHP_CODESNIFFER_STANDARD_DIRS'][ $className ] = $details['path'];
-            $GLOBALS['PHP_CODESNIFFER_TEST_DIRS'][ $className ]     = $test_dir;
-            $suite->addTestSuite($className);
-        }
+			// Tests must end with "UnitTest.php".
+			if ( substr( $filename, -1 * strlen( static::TEST_SUFFIX ) ) !== static::TEST_SUFFIX ) {
+				continue;
+			}
 
-        return $suite;
-    }
+			$className = Autoload::loadFile( $file->getPathname() );
+			$GLOBALS['PHP_CODESNIFFER_STANDARD_DIRS'][ $className ] = $details['path'];
+			$GLOBALS['PHP_CODESNIFFER_TEST_DIRS'][ $className ]     = $test_dir;
+			$suite->addTestSuite( $className );
+		}
+
+		return $suite;
+	}
 }

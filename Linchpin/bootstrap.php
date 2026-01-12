@@ -1,10 +1,16 @@
 <?php
+/**
+ * Linchpin Coding Standards.
+ *
+ * @package Linchpin\CodingStandards
+ */
 
 namespace Linchpin\CodingStandards\Sniffs;
 
 /**
  * Is the ignore file line a functional one?
  *
+ * @param string $line The line to check.
  * @return bool True for real exclusion lines, false for comments or empty lines.
  */
 function is_functional_line( $line ) {
@@ -23,7 +29,8 @@ function is_functional_line( $line ) {
  * @return string[] List of ignore rules.
  */
 function get_ignores_from_file( $file, $directory ) {
-	$content = file_get_contents( $file );
+	$content = file_get_contents( $file );  // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+
 	if ( empty( $content ) ) {
 		return [];
 	}
@@ -35,14 +42,17 @@ function get_ignores_from_file( $file, $directory ) {
 	$lines = array_filter( $lines, __NAMESPACE__ . '\\is_functional_line' );
 
 	// Make the ignore patterns absolute.
-	$lines = array_map( function ( $rule ) use ( $directory ) {
-		// Strip leading ./
-		if ( substr( $rule, 0, 2 ) === './' ) {
-			$rule = substr( $rule, 2 );
-		}
+	$lines = array_map(
+		function ( $rule ) use ( $directory ) {
+			// Strip leading "./".
+			if ( substr( $rule, 0, 2 ) === './' ) {
+					$rule = substr( $rule, 2 );
+			}
 
-		return $directory . DIRECTORY_SEPARATOR . $rule;
-	}, $lines );
+			return $directory . DIRECTORY_SEPARATOR . $rule;
+		},
+		$lines
+	);
 
 	return $lines;
 }
@@ -53,7 +63,7 @@ function get_ignores_from_file( $file, $directory ) {
  * @param \PHP_CodeSniffer\Runner $runner CodeSniffer runner instance.
  */
 function attach_to_runner( $runner ) {
-	$paths = $runner->config->files;
+	$paths   = $runner->config->files;
 	$ignored = $runner->config->ignored;
 
 	// Find exclusion files.
@@ -65,24 +75,24 @@ function attach_to_runner( $runner ) {
 		}
 
 		// Find an ignore file.
-		$directory = $path;
+		$directory   = $path;
 		$ignore_file = $directory . '/.phpcsignore';
 		if ( ! file_exists( $ignore_file ) ) {
 			continue;
 		}
 		if ( PHP_CODESNIFFER_VERBOSITY > 1 ) {
-			echo "\tAdding exclusion rules from $ignore_file\n";
+			echo "\tAdding exclusion rules from $ignore_file\n"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 
 		$extra_ignores = get_ignores_from_file( $ignore_file, $directory );
 		if ( PHP_CODESNIFFER_VERBOSITY > 1 ) {
 			foreach ( $extra_ignores as $rule ) {
-				echo "\t\t=> $rule\n";
+				echo "\t\t=> $rule\n"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 		}
 
 		$did_change = true;
-		$ignored = array_merge( $ignored, $extra_ignores );
+		$ignored    = array_merge( $ignored, $extra_ignores );
 	}
 
 	if ( $did_change ) {

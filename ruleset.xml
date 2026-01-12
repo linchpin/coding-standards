@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
 <ruleset name="Linchpin">
 	<description>Proxy to the actual Linchpin coding standards.</description>
-	<rule ref="vendor/linchpin/coding-standards/linchpin/ruleset.xml" />
+	<rule ref="vendor/linchpin/coding-standards/Linchpin/ruleset.xml" />
 </ruleset>

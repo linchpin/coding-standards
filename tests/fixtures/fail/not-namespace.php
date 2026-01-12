@@ -8,6 +8,5 @@ namespace Linchpin\Coding\Standards\Test;
 /**
  * This function should be in namespace.php instead.
  */
-function foo()
-{
+function foo() {
 }
