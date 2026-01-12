@@ -33,7 +33,7 @@
 
 	<rule ref="WordPress-Extra">
 		<!-- Allow array short syntax. -->
-		<exclude name="Universal.Arrays.DisallowShortArraySyntax.Found" />
+		<exclude name="Universal.Arrays.DisallowShortArraySyntax.Found"/>
 		<exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
 		<!-- Allow short prefixes. -->
 		<exclude name="WordPress.NamingConventions.PrefixAllGlobals.ShortPrefixPassed"/>
@@ -46,7 +46,7 @@
 		<!-- Exclude use statement rules -->
 		<exclude name="Universal.UseStatements.DisallowUseClass.FromSameNamespace"/>
 		<exclude name="Universal.UseStatements.DisallowUseFunction.FromSameNamespace"/>
-		<exclude name="Universal.UseStatements.NoLeadingBackslash.LeadingBackslashFound" />
+		<exclude name="Universal.UseStatements.NoLeadingBackslash.LeadingBackslashFound"/>
 		<!-- Allow with or without semicolons. -->
 		<exclude name="Squiz.PHP.EmbeddedPhp.NoSemicolon"/>
 		<!-- Exclude other conflicting rules. -->
