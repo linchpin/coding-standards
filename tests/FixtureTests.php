@@ -89,7 +89,7 @@ class FixtureTests extends TestCase
     /**
      * Setup our ruleset.
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->config            = new Config();
         $this->config->cache     = false;
@@ -152,9 +152,15 @@ class FixtureTests extends TestCase
     }
 
     /**
+     * Test failing files.
+     *
+     * @param string $file File to test.
+     * 
+     * @return void
+     *
      * @dataProvider failing_files
      */
-    public function test_failing_files( $file )
+    public function test_failing_files( $file ): void
     {
         $phpcsFile = new LocalFile($file, $this->ruleset, $this->config);
         $phpcsFile->process();
