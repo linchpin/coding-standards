@@ -29,8 +29,8 @@ function is_functional_line( $line ) {
  * @return string[] List of ignore rules.
  */
 function get_ignores_from_file( $file, $directory ) {
-	// phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
-	$content = file_get_contents( $file );
+	$content = file_get_contents( $file );  // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+
 	if ( empty( $content ) ) {
 		return [];
 	}
@@ -44,7 +44,7 @@ function get_ignores_from_file( $file, $directory ) {
 	// Make the ignore patterns absolute.
 	$lines = array_map(
 		function ( $rule ) use ( $directory ) {
-			// Strip leading ./
+			// Strip leading "./".
 			if ( substr( $rule, 0, 2 ) === './' ) {
 					$rule = substr( $rule, 2 );
 			}

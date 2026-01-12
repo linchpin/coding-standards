@@ -46,13 +46,13 @@ class NamespaceDirectoryNameSniff implements Sniff {
 		do {
 			$namespace .= $tokens[ $name_ptr ]['content'];
 			++$name_ptr;
-		} while ( in_array( $tokens[ $name_ptr ]['code'], [ T_STRING, T_NS_SEPARATOR ] ) );
+		} while ( in_array( $tokens[ $name_ptr ]['code'], [ T_STRING, T_NS_SEPARATOR ], true ) );
 
 		$full      = $phpcsFile->getFileName();
 		$filename  = basename( $full );
 		$directory = dirname( $full );
 
-		// Normalize the directory separator across operating systems
+		// Normalize the directory separator across operating systems.
 		if ( DIRECTORY_SEPARATOR !== '/' ) {
 			$directory = str_replace( DIRECTORY_SEPARATOR, '/', $directory );
 		}

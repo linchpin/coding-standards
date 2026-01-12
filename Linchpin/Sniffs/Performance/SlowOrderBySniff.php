@@ -42,7 +42,7 @@ class SlowOrderBySniff extends AbstractArrayAssignmentRestrictionsSniff {
 	 *
 	 * Overrides the parent to store the stackPtr for later use.
 	 *
-	 * @param int $stackPtr
+	 * @param int $stackPtr The position of the current token in the stack.
 	 */
 	public function process_token( $stackPtr ) {
 		$this->stackPtr = $stackPtr;

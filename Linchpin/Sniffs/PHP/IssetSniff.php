@@ -30,6 +30,9 @@ class IssetSniff implements Sniff {
 	 *
 	 * @param File $phpcsFile The file being scanned.
 	 * @param int  $stackPtr  The position of the current token in the stack.
+	 *
+	 * @throws RuntimeException If the stack pointer is invalid.
+	 *
 	 * @return void
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {

@@ -17,10 +17,10 @@ trait ExtraSniffCode {
 	 * This allows overriding an existing sniff and retaining the existing
 	 * ignore statements.
 	 *
-	 * @param string $legacy Legacy sniff code
+	 * @param string $legacy Legacy sniff code.
 	 */
 	protected function duplicate_ignores( $legacy ) {
-		$expression = sprintf( '/^%s(\..+)?$/', preg_quote( $legacy ) );
+		$expression = sprintf( '/^%s(\..+)?$/', preg_quote( $legacy, '/' ) );
 		$base_code  = Util\Common::getSniffCode( get_class( $this ) );
 
 		foreach ( $this->phpcsFile->tokenizer->ignoredLines as $line => $ignored ) {

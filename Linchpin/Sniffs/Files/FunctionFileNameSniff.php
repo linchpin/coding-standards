@@ -15,10 +15,22 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  */
 class FunctionFileNameSniff implements Sniff {
 
+	/**
+	 * Register the tokens to listen to.
+	 *
+	 * @return array
+	 */
 	public function register() {
 		return [ T_FUNCTION ];
 	}
 
+	/**
+	 * Process the tokens.
+	 *
+	 * @param File $phpcsFile The file being scanned.
+	 * @param int  $stackPtr  The position of the current token in the stack.
+	 * @return void
+	 */
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 		if ( $tokens[ $stackPtr ]['level'] !== 0 ) {

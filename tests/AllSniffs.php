@@ -70,7 +70,7 @@ class AllSniffs {
 				continue;
 			}
 
-			// Tests must end with "UnitTest.php"
+			// Tests must end with "UnitTest.php".
 			if ( substr( $filename, -1 * strlen( static::TEST_SUFFIX ) ) !== static::TEST_SUFFIX ) {
 				continue;
 			}

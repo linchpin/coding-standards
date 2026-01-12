@@ -51,7 +51,7 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 	 *
 	 * Overrides the parent to store the stackPtr for later use.
 	 *
-	 * @param int $stackPtr
+	 * @param int $stackPtr The position of the current token in the stack.
 	 */
 	public function process_token( $stackPtr ) {
 		$this->stackPtr = $stackPtr;
@@ -74,7 +74,7 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 		switch ( $key ) {
 			case 'meta_value':
 				// When meta_value is specified, the query operates on the value,
-				// and is hence expensive. (UNLESS: meta_compare is set)
+				// and is hence expensive. (UNLESS: meta_compare is set).
 				return true;
 
 			case 'meta_query':
@@ -124,7 +124,7 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 		$elements     = $this->get_array_indices( $array_bounds['opener'], $array_bounds['closer'] );
 
 		// Is this a "first-order" query?
-		// @see WP_Meta_Query::is_first_order_clause
+		// @see WP_Meta_Query::is_first_order_clause.
 		$first_order_key   = $this->find_key_in_array( $elements, 'key' );
 		$first_order_value = $this->find_key_in_array( $elements, 'value' );
 		if ( $first_order_key || $first_order_value ) {
@@ -159,8 +159,7 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 	/**
 	 * Get a static value from an array.
 	 *
-	 * @param  array  $elements  Elements from the array (from get_array_indices())
-	 * @param  string $array_key Key to find in the array.
+	 * @param  array $element Elements from the array (from get_array_indices()).
 	 * @return string|null Static value if available, null otherwise.
 	 */
 	protected function get_static_value_for_element( array $element ): ?string {
@@ -190,7 +189,7 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 	 *
 	 * Searches a list of elements for a given (static) index.
 	 *
-	 * @param  array  $elements  Elements from the array (from get_array_indices())
+	 * @param  array  $elements  Elements from the array (from get_array_indices()).
 	 * @param  string $array_key Key to find in the array.
 	 * @return string|null Static value if available, null otherwise.
 	 */
@@ -231,14 +230,15 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 	 *
 	 * @internal From phpcs' AbstractArraySniff::get_array_indices
 	 *
-	 * @param  integer $array_start
-	 * @param  integer $array_end
+	 * @param  integer $array_start The token that starts the array definition.
+	 * @param  integer $array_end   The token that ends the array definition.
 	 * @return array
 	 */
 	protected function get_array_indices( int $array_start, int $array_end ): array {
 		$indices = [];
 
 		$current = $array_start;
+		// phpcs:ignore Generic.CodeAnalysis.AssignmentInCondition.FoundInWhileCondition
 		while ( ( $next = $this->phpcsFile->findNext( Tokens::$emptyTokens, ( $current + 1 ), $array_end, true ) ) !== false ) {
 			$end = $this->get_next( $this->phpcsFile, $next, $array_end );
 
@@ -268,7 +268,8 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 	/**
 	 * Add an error if the comparison isn't allowed.
 	 *
-	 * @param string $compare Comparison value
+	 * @param string $compare Comparison value.
+	 * @param int    $stackPtr The position of the current token in the stack.
 	 */
 	protected function check_compare_value( string $compare, int $stackPtr = null ): void {
 		if ( empty( $stackPtr ) ) {

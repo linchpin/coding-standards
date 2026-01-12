@@ -36,14 +36,14 @@ class OrderSniff implements Sniff {
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 
-		// Things we can look for:
+		// Things we can look for.
 		$look_for = [
 			T_NAMESPACE    => 0,
-			// Then:
+			// Then.
 			T_USE          => 1,
-			// Then:
+			// Then.
 			T_CONST        => 2,
-			// Then any of:
+			// Then any of.
 			T_REQUIRE      => 3,
 			T_REQUIRE_ONCE => 3,
 			T_INCLUDE      => 3,

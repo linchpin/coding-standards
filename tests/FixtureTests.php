@@ -139,7 +139,11 @@ class FixtureTests extends TestCase {
 	}
 
 	/**
+	 * Test passing files.
+	 *
 	 * @dataProvider passing_files
+	 *
+	 * @param string $file File to test.
 	 */
 	public function test_passing_files( $file ) {
 		$phpcsFile = new LocalFile( $file, $this->ruleset, $this->config );
@@ -170,7 +174,8 @@ class FixtureTests extends TestCase {
 		$foundWarnings = $phpcsFile->getWarnings();
 
 		$expected_file = $file . '.json';
-		$expected      = json_decode( file_get_contents( $expected_file ), true );
+		// phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+		$expected = json_decode( file_get_contents( $expected_file ), true );
 
 		$this->assertEquals(
 			JSON_ERROR_NONE,
@@ -204,6 +209,5 @@ class FixtureTests extends TestCase {
 		}
 
 		$this->assertEquals( $expected, $found, sprintf( 'File %s should only contain specified errors', $rel_file ) );
-		// var_dump( $foundErrors );
 	}
 }
