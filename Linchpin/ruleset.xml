@@ -42,7 +42,7 @@
 
 		<!-- We like short arrays and ternaries around here -->
 		<exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
-		<exclude name="Universal.Arrays.DisallowShortArraySyntax.Found" />
+		<exclude name="Universal.Arrays.DisallowShortArraySyntax.Found"/>
 		<exclude name="WordPress.PHP.DisallowShortTernary"/>
 
 		<!-- Yoda conditions -->
@@ -62,7 +62,7 @@
 		<!-- Exclude use statement rules -->
 		<exclude name="Universal.UseStatements.DisallowUseClass.FromSameNamespace"/>
 		<exclude name="Universal.UseStatements.DisallowUseFunction.FromSameNamespace"/>
-		<exclude name="Universal.UseStatements.NoLeadingBackslash.LeadingBackslashFound" />
+		<exclude name="Universal.UseStatements.NoLeadingBackslash.LeadingBackslashFound"/>
 
 		<!-- Exclude whitespace rules -->
 		<exclude name="Generic.WhiteSpace.LanguageConstructSpacing"/>
