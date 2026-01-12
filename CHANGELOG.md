@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.0.3](https://github.com/linchpin/coding-standards/compare/v1.0.2...v1.0.3) (2026-01-12)
+
+
+### Bug Fixes
+
+* **NO-TASK:** Adjust tests for quality assurance ([af34bc3](https://github.com/linchpin/coding-standards/commit/af34bc3e0c53969aab56bfddc9de8ed73a54862e))
+
+
+### Miscellaneous Chores
+
+* **NO-TASK:** Adjust tab/space for xml rulesets ([62f7c9b](https://github.com/linchpin/coding-standards/commit/62f7c9b98bcc5e8996f2402eb1cccccbe4c8413c))
+* **NO-TASK:** Fix formatting, conflict between local editor config and formatting for CI ([76f6b99](https://github.com/linchpin/coding-standards/commit/76f6b99495e367d77484439de36889dedb502ff4))
+* **NO-TASK:** Minor adjustment to composer.json ([ad56b07](https://github.com/linchpin/coding-standards/commit/ad56b07511957dab3349733a7491fbf3ddbb1fb1))
+* **NO-TASK:** Minor formatting update ([82bf0af](https://github.com/linchpin/coding-standards/commit/82bf0af819f22479a943378add83e4601c47876c))
+* **NO-TASK:** QA For validating deploy of updated standards ([f2cc6b1](https://github.com/linchpin/coding-standards/commit/f2cc6b1af3a9aeeca350efcd369eb531449c234a))
+* **NO-TASK:** Remove phpstan for now ([32866b3](https://github.com/linchpin/coding-standards/commit/32866b3ca8fee4e92b3e9b9ff8b483f240eb9ae9))
+
 ## [1.0.2](https://github.com/linchpin/coding-standards/compare/v1.0.1...v1.0.2) (2026-01-11)
 
 
