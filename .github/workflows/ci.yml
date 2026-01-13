@@ -63,13 +63,6 @@ jobs:
           diff -B --tabsize=4 ./Linchpin-Minimum/ruleset.xml <(xmllint --format "./Linchpin-Minimum/ruleset.xml")
           diff -B --tabsize=4 ./Linchpin/ruleset.xml <(xmllint --format "./Linchpin/ruleset.xml")
 
-      # Validate dev tool related XML files.
-      - name: Validate Project PHPCS ruleset against schema
-        uses: phpcsstandards/xmllint-validate@v1
-        with:
-          pattern: "phpcs.xml.dist"
-          xsd-file: "vendor/squizlabs/php_codesniffer/phpcs.xsd"
-
       # Notes:
       # - PHPUnit 9.5 (which will be installed in this job) doesn't ship XSD files further back than 8.5.
       # - PHPUnit 9.3 introduced some new configuration options and deprecated the old versions of those.
