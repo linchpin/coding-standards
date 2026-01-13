@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.3](https://github.com/linchpin/coding-standards/compare/v1.1.2...v1.1.3) (2026-01-13)
+
+
+### Miscellaneous Chores
+
+* **NO-TASK:** Minor readme update ([572b14b](https://github.com/linchpin/coding-standards/commit/572b14b14224914b9b2204d8c5ac08bcabb1e190))
+
 ## [1.1.2](https://github.com/linchpin/coding-standards/compare/v1.1.1...v1.1.2) (2026-01-13)
 
 
