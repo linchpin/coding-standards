@@ -2,12 +2,12 @@
 /**
  * Linchpin Coding Standards.
  *
- * @package Linchpin\CodingStandards
+ * @package Linchpin
  */
 
-namespace Linchpin\CodingStandards\Sniffs\Security;
+namespace Linchpin\Sniffs\Security;
 
-use Linchpin\CodingStandards\Sniffs\ExtraSniffCode;
+use Linchpin\Sniffs\ExtraSniffCode;
 use PHP_CodeSniffer\Files\File as PhpcsFile;
 use WordPressCS\WordPress\Sniffs\Security\EscapeOutputSniff as WPCSEscapeOutputSniff;
 
@@ -19,62 +19,64 @@ use WordPressCS\WordPress\Sniffs\Security\EscapeOutputSniff as WPCSEscapeOutputS
  *
  * @see https://github.com/WordPress/WordPress-Coding-Standards/issues/1864
  */
-class EscapeOutputSniff extends WPCSEscapeOutputSniff {
+class EscapeOutputSniff extends WPCSEscapeOutputSniff
+{
 
-	use ExtraSniffCode;
+    use ExtraSniffCode;
 
-	/**
-	 * Allowed functions which are treated by WPCS as printing functions.
-	 *
-	 * @var array
-	 */
-	protected $safePrintingFunctions = [
-		'_deprecated_argument'    => true,
-		'_deprecated_constructor' => true,
-		'_deprecated_file'        => true,
-		'_deprecated_function'    => true,
-		'_deprecated_hook'        => true,
-		'_doing_it_wrong'         => true,
-		'trigger_error'           => true,
-		'user_error'              => true,
-	];
+    /**
+     * Allowed functions which are treated by WPCS as printing functions.
+     *
+     * @var array
+     */
+    protected $safePrintingFunctions = [
+    '_deprecated_argument'    => true,
+    '_deprecated_constructor' => true,
+    '_deprecated_file'        => true,
+    '_deprecated_function'    => true,
+    '_deprecated_hook'        => true,
+    '_doing_it_wrong'         => true,
+    'trigger_error'           => true,
+    'user_error'              => true,
+    ];
 
-	/**
-	 * Printing functions that incorporate unsafe values.
-	 *
-	 * This is overridden from the parent class to allow unescaped
-	 * translated text.
-	 *
-	 * @var array
-	 */
-	protected $unsafePrintingFunctions = [];
+    /**
+     * Printing functions that incorporate unsafe values.
+     *
+     * This is overridden from the parent class to allow unescaped
+     * translated text.
+     *
+     * @var array
+     */
+    protected $unsafePrintingFunctions = [];
 
-	/**
-	 * Printing functions from parent class.
-	 *
-	 * This property is declared to avoid PHP 8.2+ dynamic property deprecation.
-	 * It will be initialized by the parent class.
-	 *
-	 * @var array
-	 */
-	protected $printingFunctions = [];
+    /**
+     * Printing functions from parent class.
+     *
+     * This property is declared to avoid PHP 8.2+ dynamic property deprecation.
+     * It will be initialized by the parent class.
+     *
+     * @var array
+     */
+    protected $printingFunctions = [];
 
-	/**
-	 * Override init to duplicate any ignores and remove safe printing functions.
-	 *
-	 * @param PhpcsFile $phpcsFile The file being scanned.
-	 */
-	protected function init( PhpcsFile $phpcsFile ) {
-		parent::init( $phpcsFile );
+    /**
+     * Override init to duplicate any ignores and remove safe printing functions.
+     *
+     * @param PhpcsFile $phpcsFile The file being scanned.
+     */
+    protected function init( PhpcsFile $phpcsFile )
+    {
+        parent::init($phpcsFile);
 
-		// Remove error logging functions from output functions.
-		// This must be done after parent::init() to ensure printingFunctions is initialized.
-		foreach ( $this->safePrintingFunctions as $function => $val ) {
-			if ( isset( $this->printingFunctions[ $function ] ) ) {
-				unset( $this->printingFunctions[ $function ] );
-			}
-		}
+        // Remove error logging functions from output functions.
+        // This must be done after parent::init() to ensure printingFunctions is initialized.
+        foreach ( $this->safePrintingFunctions as $function => $val ) {
+            if (isset($this->printingFunctions[ $function ]) ) {
+                unset($this->printingFunctions[ $function ]);
+            }
+        }
 
-		$this->duplicate_ignores( 'WordPress.Security.EscapeOutput' );
-	}
+        $this->duplicate_ignores('WordPress.Security.EscapeOutput');
+    }
 }

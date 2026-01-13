@@ -1,3 +1,3 @@
 <?php
 
-namespace Linchpin\CodingStandards\Coffee\Grinder_Fail;
+namespace Linchpin\Coffee\Grinder_Fail;

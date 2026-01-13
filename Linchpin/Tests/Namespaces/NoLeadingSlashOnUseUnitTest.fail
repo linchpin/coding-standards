@@ -1,6 +1,6 @@
 <?php
 
-namespace Linchpin\CodingStandards\Tests;
+namespace Linchpin\Tests;
 
 use \Linchpin\Other;
 use \WP_Post;

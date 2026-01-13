@@ -1,5 +1,7 @@
 <?php
 
-namespace Linchpin\CodingStandards\Tests;
+namespace Linchpin\Tests;
 
-class Test {}
+class Test
+{
+}

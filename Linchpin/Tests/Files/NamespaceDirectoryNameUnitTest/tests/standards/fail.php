@@ -1,3 +1,3 @@
 <?php
 
-namespace Linchpin\CodingStandards\Tests\Fail;
+namespace Linchpin\Tests\Fail;

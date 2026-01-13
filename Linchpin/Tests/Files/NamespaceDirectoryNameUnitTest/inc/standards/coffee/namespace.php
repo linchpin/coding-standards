@@ -1,3 +1,3 @@
 <?php
 
-namespace Linchpin\CodingStandards\Coffee;
+namespace Linchpin\Coffee;

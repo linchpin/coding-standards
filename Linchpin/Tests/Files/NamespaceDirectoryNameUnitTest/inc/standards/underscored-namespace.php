@@ -1,3 +1,3 @@
 <?php
 
-namespace Linchpin\CodingStandards\Underscored_Namespace;
+namespace Linchpin\Underscored_Namespace;

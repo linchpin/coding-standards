@@ -1,6 +1,6 @@
 <?php
 
-namespace Linchpin\CodingStandards\Tests;
+namespace Linchpin\Tests;
 
 require 'include3.php';
 require_once 'include4.php';

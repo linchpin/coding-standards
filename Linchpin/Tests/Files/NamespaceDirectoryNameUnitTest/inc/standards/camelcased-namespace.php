@@ -1,3 +1,3 @@
 <?php
 
-namespace Linchpin\CodingStandards\CamelcasedNamespace;
+namespace Linchpin\CamelcasedNamespace;

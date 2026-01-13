@@ -1,3 +1,3 @@
 <?php
 
-namespace Linchpin\CodingStandards\Tests;
+namespace Linchpin\Tests;

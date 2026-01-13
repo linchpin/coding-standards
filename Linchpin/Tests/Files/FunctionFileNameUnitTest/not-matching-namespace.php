@@ -1,5 +1,7 @@
 <?php
 
-namespace Linchpin\CodingStandards\Matching_Namespace;
+namespace Linchpin\Matching_Namespace;
 
-function foo() {}
+function foo()
+{
+}
