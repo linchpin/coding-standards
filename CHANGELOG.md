@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/linchpin/coding-standards/compare/v1.1.1...v1.1.2) (2026-01-13)
+
+
+### Bug Fixes
+
+* **NO-TASK:** Don't allow translations w/o a comment ([c76b065](https://github.com/linchpin/coding-standards/commit/c76b0650045cad9c012c770a9117fb64563f37f0))
+
 ## [1.1.1](https://github.com/linchpin/coding-standards/compare/v1.1.0...v1.1.1) (2026-01-13)
 
 
