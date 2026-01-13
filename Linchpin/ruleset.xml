@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<ruleset name="Linchpin" namespace="Linchpin\CodingStandards">
-	<description>Linchpin coding standards.</description>
+<ruleset name="Linchpin" namespace="Linchpin">
+	<description>Linchpin coding standards</description>
 
 	<!-- Set the memory limit to 512M. -->
 	<ini name="memory_limit" value="512M"/>
@@ -43,6 +43,7 @@
 		<!-- Exclude filename rules -->
 		<exclude name="WordPress.Files.FileName.NotHyphenatedLowercase"/>
 		<exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
+		<exclude name="WordPress.Files.ClassFileName.MismatchedName"/>
 		<!-- Exclude use statement rules -->
 		<exclude name="Universal.UseStatements.DisallowUseClass.FromSameNamespace"/>
 		<exclude name="Universal.UseStatements.DisallowUseFunction.FromSameNamespace"/>

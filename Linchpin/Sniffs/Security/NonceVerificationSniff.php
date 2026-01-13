@@ -2,12 +2,12 @@
 /**
  * Linchpin Coding Standards.
  *
- * @package Linchpin\CodingStandards
+ * @package Linchpin
  */
 
-namespace Linchpin\CodingStandards\Sniffs\Security;
+namespace Linchpin\Sniffs\Security;
 
-use Linchpin\CodingStandards\Sniffs\ExtraSniffCode;
+use Linchpin\Sniffs\ExtraSniffCode;
 use PHP_CodeSniffer\Files\File as PhpcsFile;
 use WordPressCS\WordPress\Sniffs\Security\NonceVerificationSniff as WPCSNonceVerificationSniff;
 
@@ -17,33 +17,35 @@ use WordPressCS\WordPress\Sniffs\Security\NonceVerificationSniff as WPCSNonceVer
  * This is subclassed from WPCS to allow `$_GET` variables to be used if
  * configured to do so.
  */
-class NonceVerificationSniff extends WPCSNonceVerificationSniff {
+class NonceVerificationSniff extends WPCSNonceVerificationSniff
+{
 
-	use ExtraSniffCode;
+    use ExtraSniffCode;
 
-	/**
-	 * Allow query ($_GET) variables to be used without checking nonces?
-	 *
-	 * Nonces are designed to protect against destructive actions taking
-	 * place without user intent. However, query variables are typically used
-	 * for non-destructive actions, so this is a false positive in most cases.
-	 *
-	 * @var boolean
-	 */
-	public $allowQueryVariables = false;
+    /**
+     * Allow query ($_GET) variables to be used without checking nonces?
+     *
+     * Nonces are designed to protect against destructive actions taking
+     * place without user intent. However, query variables are typically used
+     * for non-destructive actions, so this is a false positive in most cases.
+     *
+     * @var boolean
+     */
+    public $allowQueryVariables = false;
 
-	/**
-	 * Override init to override config and duplicate any ignores.
-	 *
-	 * @param PhpcsFile $phpcsFile The file being scanned.
-	 */
-	public function init( PhpcsFile $phpcsFile ) {
-		parent::init( $phpcsFile );
+    /**
+     * Override init to override config and duplicate any ignores.
+     *
+     * @param PhpcsFile $phpcsFile The file being scanned.
+     */
+    public function init( PhpcsFile $phpcsFile )
+    {
+        parent::init($phpcsFile);
 
-		if ( $this->allowQueryVariables ) {
-			unset( $this->superglobals['$_GET'] );
-		}
+        if ($this->allowQueryVariables ) {
+            unset($this->superglobals['$_GET']);
+        }
 
-		$this->duplicate_ignores( 'WordPress.Security.NonceVerification' );
-	}
+        $this->duplicate_ignores('WordPress.Security.NonceVerification');
+    }
 }

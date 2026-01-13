@@ -49,7 +49,7 @@ Here's a basic unit test template:
 ```php
 <?php
 
-namespace Linchpin\CodingStandards\Tests\Layout;
+namespace Linchpin\Tests\Layout;
 
 use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
 
