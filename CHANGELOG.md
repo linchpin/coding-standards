@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.5](https://github.com/linchpin/coding-standards/compare/v1.1.4...v1.1.5) (2026-01-13)
+
+
+### Miscellaneous Chores
+
+* **NO-TASK:** Further scale back sniffs ([59bf7f4](https://github.com/linchpin/coding-standards/commit/59bf7f483b8d7b0a647e4f1ae86e6fbde4d5997e))
+
 ## [1.1.4](https://github.com/linchpin/coding-standards/compare/v1.1.3...v1.1.4) (2026-01-13)
 
 
