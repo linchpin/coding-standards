@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.1](https://github.com/linchpin/coding-standards/compare/v1.1.0...v1.1.1) (2026-01-13)
+
+
+### Miscellaneous Chores
+
+* **NO-TASK:** Remove additional reporting ([9f67c0e](https://github.com/linchpin/coding-standards/commit/9f67c0e02479b5db6f8c518568f9dec3bd65c36e))
+* **NO-TASK:** Remove validation on removed file ([bc75838](https://github.com/linchpin/coding-standards/commit/bc75838796f5f83c78b47a6a3f68d056cee8b8fc))
+
 ## [1.1.0](https://github.com/linchpin/coding-standards/compare/v1.0.5...v1.1.0) (2026-01-13)
 
 
