@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.4](https://github.com/linchpin/coding-standards/compare/v1.1.3...v1.1.4) (2026-01-13)
+
+
+### Miscellaneous Chores
+
+* **NO-TASK:** Relaxing sniffs ([774f47f](https://github.com/linchpin/coding-standards/commit/774f47fc535c65c30fc93e17bb45855b5137a451))
+* **NO-TASK:** Simplify namespace ([20ce082](https://github.com/linchpin/coding-standards/commit/20ce0825e3b4c9dd038d907c1a9728acc6cb3f76))
+
 ## [1.1.3](https://github.com/linchpin/coding-standards/compare/v1.1.2...v1.1.3) (2026-01-13)
 
 
