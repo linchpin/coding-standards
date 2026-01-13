@@ -12,10 +12,10 @@
 	<arg value="s"/>
 
 	<!-- Parallel processing. -->
-	<arg name="parallel" value="50"/>
+	<arg name="parallel" value="25"/>
 
 	<!-- WordPress Core currently supports PHP 8.2+. -->
-	<config name="testVersion" value="8.2-8.3"/>
+	<config name="testVersion" value="8.2-8.4"/>
 
 	<exclude-pattern>node_modules/*</exclude-pattern>
 	<exclude-pattern>vendor/*</exclude-pattern>
