@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/linchpin/coding-standards/compare/v1.0.5...v1.1.0) (2026-01-13)
+
+
+### Features
+
+* **NO-TASK:** Create simple build process ([d8c6836](https://github.com/linchpin/coding-standards/commit/d8c6836fee1608a9b24bf9c43a60fcd5070d146a))
+
 ## [1.0.5](https://github.com/linchpin/coding-standards/compare/v1.0.4...v1.0.5) (2026-01-12)
 
 
