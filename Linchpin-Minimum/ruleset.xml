@@ -132,7 +132,8 @@
 	<!-- Disallow BOM, which causes issues with headers being sent. (From WordPress-Core) -->
 	<rule ref="Generic.Files.ByteOrderMark"/>
 	<!-- Disallow empty statements. -->
-	<rule ref="WordPress.CodeAnalysis.EmptyStatement"/>
+	<!-- Note: WordPress.CodeAnalysis.EmptyStatement was deprecated, using Generic replacement -->
+	<rule ref="Generic.CodeAnalysis.EmptyPHPStatement"/>
 	<!-- Require correct usage of WP's i18n functions. -->
 	<rule ref="WordPress.WP.I18n">
 		<properties>

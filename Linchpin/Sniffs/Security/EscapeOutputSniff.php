@@ -50,24 +50,30 @@ class EscapeOutputSniff extends WPCSEscapeOutputSniff {
 	protected $unsafePrintingFunctions = [];
 
 	/**
-	 * Constructor.
+	 * Printing functions from parent class.
 	 *
-	 * Removes non-printing functions from the property.
+	 * This property is declared to avoid PHP 8.2+ dynamic property deprecation.
+	 * It will be initialized by the parent class.
+	 *
+	 * @var array
 	 */
-	public function __construct() {
-		// Remove error logging functions from output functions.
-		foreach ( $this->safePrintingFunctions as $function => $val ) {
-			unset( $this->printingFunctions[ $function ] );
-		}
-	}
+	protected $printingFunctions = [];
 
 	/**
-	 * Override init to duplicate any ignores.
+	 * Override init to duplicate any ignores and remove safe printing functions.
 	 *
 	 * @param PhpcsFile $phpcsFile The file being scanned.
 	 */
 	protected function init( PhpcsFile $phpcsFile ) {
 		parent::init( $phpcsFile );
+
+		// Remove error logging functions from output functions.
+		// This must be done after parent::init() to ensure printingFunctions is initialized.
+		foreach ( $this->safePrintingFunctions as $function => $val ) {
+			if ( isset( $this->printingFunctions[ $function ] ) ) {
+				unset( $this->printingFunctions[ $function ] );
+			}
+		}
 
 		$this->duplicate_ignores( 'WordPress.Security.EscapeOutput' );
 	}

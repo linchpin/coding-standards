@@ -54,7 +54,8 @@
 		<exclude name="WordPress.PHP.DevelopmentFunctions.error_log_trigger_error"/>
 		<exclude name="Generic.Formatting.MultipleStatementAlignment.NotSameWarning"/>
 		<!-- We like short arrays and ternaries around here -->
-		<exclude name="WordPress.PHP.DisallowShortTernary"/>
+		<!-- Note: WordPress.PHP.DisallowShortTernary was deprecated, using Universal replacement -->
+		<exclude name="Universal.Operators.DisallowShortTernary"/>
 		<!-- Exclude whitespace rules -->
 		<exclude name="Generic.WhiteSpace.LanguageConstructSpacing"/>
 	</rule>
@@ -91,7 +92,7 @@
 	<!-- Ease up on the PHP DOM* objects. -->
 	<rule ref="WordPress.NamingConventions.ValidVariableName">
 		<properties>
-			<property name="customPropertiesWhitelist" type="array">
+			<property name="allowed_custom_properties" type="array">
 				<!-- DOMDocument::$documentElement -->
 				<element value="documentElement"/>
 				<!-- DOMElement::$childElementCount -->
