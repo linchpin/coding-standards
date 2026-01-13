@@ -84,7 +84,7 @@ If you want to add further rules (such as WordPress.com VIP-specific rules) or c
 	<arg name="basepath" value="." />
 
 	<!-- Set a minimum PHP version for PHPCompatibility -->
-	<config name="testVersion" value="7.2-" />
+	<config name="testVersion" value="8.0-" />
 
 	<!-- Use Linchpin Coding Standards -->
 	<rule ref="vendor/linchpin/coding-standards" />
