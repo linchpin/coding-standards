@@ -136,9 +136,6 @@
 	<rule ref="Generic.CodeAnalysis.EmptyPHPStatement"/>
 	<!-- Require correct usage of WP's i18n functions. -->
 	<rule ref="WordPress.WP.I18n">
-		<properties>
-			<property name="check_translator_comments" value="false"/>
-		</properties>
 		<!-- Allow empty strings to be translated (e.g. space character) -->
 		<exclude name="WordPress.WP.I18n.NoEmptyStrings"/>
 		<!--
