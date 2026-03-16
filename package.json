@@ -19,7 +19,7 @@
 	"bugs": {
 		"url": "https://github.com/linchpin/coding-standards/issues"
 	},
-	"packageManager": "npm@10.8.2",
+	"packageManager": "npm@10.9.6",
 	"npmpackagejsonlint": {
 		"extends": "@wordpress/npm-package-json-lint-config",
 		"rules": {
