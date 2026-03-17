@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.1.6](https://github.com/linchpin/coding-standards/compare/v1.1.5...v1.1.6) (2026-03-17)
+
+
+### Miscellaneous Chores
+
+* Configure Renovate ([9c20ac2](https://github.com/linchpin/coding-standards/commit/9c20ac2f4a1a45fc635eb0943871b0caaa43e0f8))
+* **deps:** update dependency @wordpress/npm-package-json-lint-config to v5 ([695e1bd](https://github.com/linchpin/coding-standards/commit/695e1bd64a995195c5b82501a965efeaae0e843b))
+* **deps:** update dependency @wordpress/npm-package-json-lint-config to v5 ([f96c6bc](https://github.com/linchpin/coding-standards/commit/f96c6bc8ee8fa0f73d379527b2e18169b6d3da55))
+* **deps:** update npm to v10.9.6 ([97f62e2](https://github.com/linchpin/coding-standards/commit/97f62e2fb4bcdb1f2db415e6c2528e11542520f2))
+* **deps:** update npm to v10.9.6 ([77fe642](https://github.com/linchpin/coding-standards/commit/77fe642e4d5498dd3f8daf90f6f85a01aa51abcf))
+
 ## [1.1.5](https://github.com/linchpin/coding-standards/compare/v1.1.4...v1.1.5) (2026-01-13)
 
 
