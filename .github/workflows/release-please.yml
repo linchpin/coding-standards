@@ -35,5 +35,5 @@ jobs:
   update-readme:
     needs: [release-please]
     if: github.event_name != 'pull_request' && ! needs.release-please.outputs.release_created
-    uses: linchpin/actions/.github/workflows/update-readme.yml@v3
+    uses: linchpin/actions/.github/workflows/update-readme.yml@v4
     secrets: inherit
