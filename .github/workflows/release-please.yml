@@ -18,12 +18,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v7
 
-      - name: Install Composer dependencies
-        uses: ramsey/composer-install@4.0.0
-        with:
-          # Bust the cache at least once a month - output format: YYYY-MM.
-          custom-cache-suffix: $(date -u "+%Y-%m")
-
+      # Note: no Composer install here on purpose. release-please only reads the
+      # git history and release-please-config.json, so it needs no PHP dependencies.
+      # Installing them also broke this job: the runner's system PHP is 8.3, while
+      # our dev requirement phpunit/phpunit ^13 needs PHP >= 8.4.1.
       - name: Run release-please
         id: release
         uses: googleapis/release-please-action@v5
