@@ -51,7 +51,7 @@ jobs:
 
       # Validate the XML file.
       - name: Validate rulesets against schema
-        uses: phpcsstandards/xmllint-validate@v1
+        uses: phpcsstandards/xmllint-validate@v2.0.0
         with:
           pattern: "./*/ruleset.xml"
           xsd-file: "vendor/squizlabs/php_codesniffer/phpcs.xsd"
@@ -69,13 +69,13 @@ jobs:
       #   For cross-version compatibility with older PHPUnit versions, those new config options cannot be used yet,
       #   which is why the PHPUnit 9 validation is done against the PHPUnit 9.2 schema.
       - name: "Validate PHPUnit config for use with PHPUnit 8"
-        uses: phpcsstandards/xmllint-validate@v1
+        uses: phpcsstandards/xmllint-validate@v2.0.0
         with:
           pattern: "phpunit.xml.dist"
           xsd-file: "vendor/phpunit/phpunit/schema/8.5.xsd"
 
       - name: "Validate PHPUnit config for use with PHPUnit 9"
-        uses: phpcsstandards/xmllint-validate@v1
+        uses: phpcsstandards/xmllint-validate@v2.0.0
         with:
           pattern: "phpunit.xml.dist"
           xsd-file: "vendor/phpunit/phpunit/schema/9.2.xsd"
