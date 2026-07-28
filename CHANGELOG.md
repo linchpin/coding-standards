@@ -1,5 +1,33 @@
 # Changelog
 
+## [1.1.7](https://github.com/linchpin/coding-standards/compare/v1.1.6...v1.1.7) (2026-07-28)
+
+
+### Bug Fixes
+
+* **deps:** update dependency fig-r/psr2r-sniffer to v2 ([b18eab5](https://github.com/linchpin/coding-standards/commit/b18eab5a0f53518e988b9410d4051bf58d25ab37))
+* **deps:** update dependency fig-r/psr2r-sniffer to v2 ([ef01b91](https://github.com/linchpin/coding-standards/commit/ef01b91c8d51b38e425fad0a57851f31e1b20bc9))
+
+
+### Miscellaneous Chores
+
+* **deps:** update actions/checkout action to v7 ([a95bdc4](https://github.com/linchpin/coding-standards/commit/a95bdc47c86689be3fb977d4bf561bf5d28d60a8))
+* **deps:** update actions/checkout action to v7 ([4fa6d35](https://github.com/linchpin/coding-standards/commit/4fa6d35ba99336a63ae8b20df22d52a2bd7c7a06))
+* **deps:** update dependency npm-package-json-lint to v10 ([0e4b3eb](https://github.com/linchpin/coding-standards/commit/0e4b3ebb924b5d924ce2c6e676e6c9780945e978))
+* **deps:** update dependency npm-package-json-lint to v10 ([62858d0](https://github.com/linchpin/coding-standards/commit/62858d06c361bc9bdf5223cb75a250bc433f24a3))
+* **deps:** update googleapis/release-please-action action to v5 ([13b0c2d](https://github.com/linchpin/coding-standards/commit/13b0c2de778f1979c278aeaca592eb3766dfb6f2))
+* **deps:** update googleapis/release-please-action action to v5 ([3f247cd](https://github.com/linchpin/coding-standards/commit/3f247cd1443a933e0cb9a8ee83310b43b23e8e99))
+* **deps:** update linchpin/actions action to v4 ([c0ee8e6](https://github.com/linchpin/coding-standards/commit/c0ee8e63651db6193e92c4753a8e894a8f075fb1))
+* **deps:** update linchpin/actions action to v4 ([7cee167](https://github.com/linchpin/coding-standards/commit/7cee16730010f4d71de8c599fef75115353ea72c))
+* **deps:** update node.js to v24 ([6fa69c0](https://github.com/linchpin/coding-standards/commit/6fa69c00b6e056494b3de3812e218767ef7a65b3))
+* **deps:** update node.js to v24 ([d70e8f3](https://github.com/linchpin/coding-standards/commit/d70e8f3ba600f3669b1de97389553b6458ba9259))
+* **deps:** update npm to v12 ([7d22a79](https://github.com/linchpin/coding-standards/commit/7d22a79aa3e7294e0e82a744c95e824cb3a22285))
+* **deps:** update npm to v12 ([c1731c8](https://github.com/linchpin/coding-standards/commit/c1731c8bf9d2fb66d1483038d8efb74da180439b))
+* **deps:** update phpcsstandards/xmllint-validate action to v2 ([e149c4f](https://github.com/linchpin/coding-standards/commit/e149c4f954212ab53e6f10067fcd17f302b7ec0e))
+* **deps:** update phpcsstandards/xmllint-validate action to v2 ([90ed299](https://github.com/linchpin/coding-standards/commit/90ed2994ac03f34fe75e0ed2278f7e279a46e710))
+* **deps:** update ramsey/composer-install action to v4 ([231df15](https://github.com/linchpin/coding-standards/commit/231df15724148d8a37dc831a924e1545b5c6cad1))
+* **deps:** update ramsey/composer-install action to v4 ([c728819](https://github.com/linchpin/coding-standards/commit/c728819798d3883c37e2074bd02124da4b3f0057))
+
 ## [1.1.6](https://github.com/linchpin/coding-standards/compare/v1.1.5...v1.1.6) (2026-03-17)
 
 
