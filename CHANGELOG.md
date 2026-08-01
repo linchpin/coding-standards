@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.1.8](https://github.com/linchpin/coding-standards/compare/v1.1.7...v1.1.8) (2026-08-01)
+
+
+### Bug Fixes
+
+* **NO-TASK:** Drop inapplicable update-readme job from Release workflow ([5ab933f](https://github.com/linchpin/coding-standards/commit/5ab933f51516fd5f237f7dbf6d72bc6d551e320d))
+* **NO-TASK:** Remove unused Composer install from Release workflow ([52a86fd](https://github.com/linchpin/coding-standards/commit/52a86fd1456a1ae007d47cb0cf81d4dbda1d9343))
+* **NO-TASK:** Remove unused Composer install from Release workflow ([8fd0d41](https://github.com/linchpin/coding-standards/commit/8fd0d418f152922e09e48a36e2053d2997576553))
+* **NO-TASK:** Repair SlowMetaQuery sniff under WPCS 3 ([6817e74](https://github.com/linchpin/coding-standards/commit/6817e74c123e4f0339d162841dfd9ae7c18fa7ec))
+* **NO-TASK:** Repair SlowMetaQuery sniff under WPCS 3 ([6fd8703](https://github.com/linchpin/coding-standards/commit/6fd8703d750e04a6c32866c4935f65dec3e17f6b))
+
+
+### Miscellaneous Chores
+
+* **deps:** update npm to v12.0.2 ([9f8c066](https://github.com/linchpin/coding-standards/commit/9f8c066a2117c7f94cdee5c573a9a83239b6c08d))
+* **deps:** update npm to v12.0.2 ([223a582](https://github.com/linchpin/coding-standards/commit/223a58213167ade3357c4fcbc4db5b2431d07117))
+
 ## [1.1.7](https://github.com/linchpin/coding-standards/compare/v1.1.6...v1.1.7) (2026-07-28)
 
 
