@@ -9,6 +9,9 @@ namespace Linchpin\Sniffs\Performance;
 
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Util\Tokens;
+use PHPCSUtils\Utils\Arrays;
+use PHPCSUtils\Utils\MessageHelper;
+use PHPCSUtils\Utils\TextStrings;
 use WordPressCS\WordPress\AbstractArrayAssignmentRestrictionsSniff;
 
 /**
@@ -126,8 +129,16 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff
             return;
         }
 
-        $array_bounds = $this->find_array_open_close($array_open);
-        $elements     = $this->get_array_indices($array_bounds['opener'], $array_bounds['closer']);
+        // WPCS 2 provided find_array_open_close() on WordPressCS\WordPress\Sniff.
+        // WPCS 3 removed it in favour of PHPCSUtils, which ships as one of its
+        // own dependencies and returns the same opener/closer shape.
+        $array_bounds = Arrays::getOpenClose($this->phpcsFile, $array_open);
+        if ($array_bounds === false ) {
+            // Not a resolvable array; nothing to inspect.
+            return;
+        }
+
+        $elements = $this->get_array_indices($array_bounds['opener'], $array_bounds['closer']);
 
         // Is this a "first-order" query?
         // @see WP_Meta_Query::is_first_order_clause.
@@ -160,6 +171,46 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff
             // Otherwise, recurse.
             $this->check_meta_query_item($element['value_start']);
         }
+    }
+
+    /**
+     * Add a warning or an error to the file.
+     *
+     * WPCS 2 provided addMessage() on WordPressCS\WordPress\Sniff. WPCS 3
+     * dropped it in favour of PHPCSUtils' MessageHelper, so the original call
+     * shape is preserved here and delegated to the replacement.
+     *
+     * @param  string   $message  The message.
+     * @param  int      $stackPtr Token the message relates to.
+     * @param  string   $type     Either 'warning' or 'error'.
+     * @param  string   $code     The message code.
+     * @param  scalar[] $data     Optional data replacements for the message.
+     * @return bool
+     */
+    protected function addMessage( string $message, int $stackPtr, string $type = 'warning', string $code = 'Found', array $data = [] ): bool
+    {
+        return MessageHelper::addMessage(
+            $this->phpcsFile,
+            $message,
+            $stackPtr,
+            $type === 'error',
+            $code,
+            $data
+        );
+    }
+
+    /**
+     * Strip surrounding quotes from a string.
+     *
+     * WPCS 2 provided strip_quotes() on WordPressCS\WordPress\Sniff. WPCS 3
+     * dropped it in favour of PHPCSUtils' TextStrings.
+     *
+     * @param  string $text_string The raw token content.
+     * @return string
+     */
+    protected function strip_quotes( string $text_string ): string
+    {
+        return TextStrings::stripQuotes($text_string);
     }
 
     /**
@@ -277,10 +328,10 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff
     /**
      * Add an error if the comparison isn't allowed.
      *
-     * @param string $compare  Comparison value.
-     * @param int    $stackPtr The position of the current token in the stack.
+     * @param string   $compare  Comparison value.
+     * @param int|null $stackPtr The position of the current token in the stack.
      */
-    protected function check_compare_value( string $compare, int $stackPtr = null ): void
+    protected function check_compare_value( string $compare, ?int $stackPtr = null ): void
     {
         if (empty($stackPtr) ) {
             $stackPtr = $this->stackPtr;
