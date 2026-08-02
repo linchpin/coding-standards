@@ -162,8 +162,32 @@
 	<rule ref="PSR2.Namespaces.UseDeclaration">
 		<exclude name="PSR2.Namespaces.UseDeclaration.MultipleDeclarations"/>
 	</rule>
-	<rule ref="PSR2R.Namespaces.UnusedUseStatement"/>
-	<rule ref="PSR2R.Namespaces.UseInAlphabeticalOrder"/>
+	<!--
+	Unused and unsorted `use` statements.
+
+	These were PSR2R.Namespaces.UnusedUseStatement and
+	PSR2R.Namespaces.UseInAlphabeticalOrder until fig-r/psr2r-sniffer 2.x
+	dropped both in favour of Slevomat's implementations — NoInlineFullyQualifiedClassName
+	is now the only sniff left in that category. Because composer.json requires
+	psr2r-sniffer ^2.0.0, the old references resolved to nothing and phpcs
+	aborted with "Referenced sniff ... does not exist" before running a single
+	check, which made the whole Linchpin standard unloadable.
+
+	slevomat/coding-standard is a hard dependency of psr2r-sniffer 2.x, so these
+	are always installed alongside it.
+	-->
+	<rule ref="SlevomatCodingStandard.Namespaces.UnusedUses">
+		<properties>
+			<!--
+			WordPress docblocks carry real type information, and PHPStan reads
+			it. An import referenced only from @param/@return/@var/@throws is
+			still used; without this the sniff tells you to delete it and
+			PHPStan then reports the type as unresolvable.
+			-->
+			<property name="searchAnnotations" value="true"/>
+		</properties>
+	</rule>
+	<rule ref="SlevomatCodingStandard.Namespaces.AlphabeticallySortedUses"/>
 	<!-- Ban inline assignment in control structures (see note on Yoda Conditions above). -->
 	<rule ref="PSR2R.ControlStructures.NoInlineAssignment"/>
 	<!-- Our custom empty line rule handles superfluous whitespace better -->
