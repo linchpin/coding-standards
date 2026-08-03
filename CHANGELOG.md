@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.9](https://github.com/linchpin/coding-standards/compare/v1.1.8...v1.1.9) (2026-08-03)
+
+
+### Bug Fixes
+
+* **NO-TASK:** Replace PSR2R namespace sniffs removed upstream ([69c063f](https://github.com/linchpin/coding-standards/commit/69c063f645f12e6516a12fb59e407b9ef8ab31bb))
+* **NO-TASK:** Replace PSR2R namespace sniffs removed upstream ([dcea58d](https://github.com/linchpin/coding-standards/commit/dcea58df2c757f2cae48529aa620526cc13b8a6f))
+
 ## [1.1.8](https://github.com/linchpin/coding-standards/compare/v1.1.7...v1.1.8) (2026-08-01)
 
 
