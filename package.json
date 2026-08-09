@@ -62,11 +62,16 @@
 		]
 	},
 	"devDependencies": {
+		"@commitlint/cli": "^21.2.1",
+		"@commitlint/config-conventional": "^21.2.0",
+		"@linchpinagency/commitlint-config": "^1.2.0",
 		"@wordpress/npm-package-json-lint-config": "^5.0.0",
+		"husky": "^9.1.7",
 		"npm-package-json-lint": "^10.0.0"
 	},
 	"scripts": {
 		"lint-pkg-json": "npmPkgJsonLint .",
-		"test": "npm run lint-pkg-json"
+		"test": "npm run lint-pkg-json",
+		"prepare": "husky"
 	}
 }
