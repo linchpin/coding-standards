@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.1.10](https://github.com/linchpin/coding-standards/compare/v1.1.9...v1.1.10) (2026-09-10)
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency npm-package-json-lint to v11 ([c32ce6c](https://github.com/linchpin/coding-standards/commit/c32ce6c8ba8c61330b20672a12047089da55bc36))
+* **deps:** update dependency npm-package-json-lint to v11 ([9e81aaa](https://github.com/linchpin/coding-standards/commit/9e81aaa0559cf33170903a4d7d6d7ae3cbabf178))
+* **NO-TASK:** Use shared linchpin commitlint config ([bac2b24](https://github.com/linchpin/coding-standards/commit/bac2b24a4bbbadcbec85c2461fe8ac898be9accd))
+* **NO-TASK:** Use shared linchpin commitlint config ([1588d50](https://github.com/linchpin/coding-standards/commit/1588d5073493dd050c448dcd813685899760dcb4))
+
 ## [1.1.9](https://github.com/linchpin/coding-standards/compare/v1.1.8...v1.1.9) (2026-08-03)
 
 
