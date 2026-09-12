@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.0](https://github.com/linchpin/coding-standards/compare/v1.2.0...v1.3.0) (2026-09-12)
+
+
+### Features
+
+* **NO-TASK:** Share the branch-scoped coding-standards check ([ef33538](https://github.com/linchpin/coding-standards/commit/ef335386ff172244e141aa578dbfa6ef4bef3cfe))
+* **NO-TASK:** Share the branch-scoped coding-standards check ([b90e364](https://github.com/linchpin/coding-standards/commit/b90e364ed0409418576452b43fa7c0175af355db))
+
 ## [1.2.0](https://github.com/linchpin/coding-standards/compare/v1.1.10...v1.2.0) (2026-09-12)
 
 
