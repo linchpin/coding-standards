@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.0](https://github.com/linchpin/coding-standards/compare/v1.1.10...v1.2.0) (2026-09-12)
+
+
+### Features
+
+* **NO-TASK:** Bundle parallel-lint so the standard is one dependency ([7cddd73](https://github.com/linchpin/coding-standards/commit/7cddd73cd1b5d59c4b6fe483b5ce45318802d743))
+* **NO-TASK:** Bundle parallel-lint so the standard is one dependency ([bfb7107](https://github.com/linchpin/coding-standards/commit/bfb71076526eafab377777d7c83fc8acb3498898))
+
 ## [1.1.10](https://github.com/linchpin/coding-standards/compare/v1.1.9...v1.1.10) (2026-09-10)
 
 
