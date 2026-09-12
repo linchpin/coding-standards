@@ -23,7 +23,9 @@
         "phpunit/phpunit": "^13.0"
     },
     "scripts": {
-        "test": "phpunit"
+        "test": "phpunit",
+        "check-branch-cs": "Linchpin\\Composer\\Actions::check_branch_cs",
+        "check-staged-cs": "Linchpin\\Composer\\Actions::check_staged_cs"
     },
     "config": {
         "allow-plugins": {
