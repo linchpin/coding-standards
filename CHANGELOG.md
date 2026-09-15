@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.1](https://github.com/linchpin/coding-standards/compare/v1.3.0...v1.3.1) (2026-09-15)
+
+
+### Bug Fixes
+
+* **LINCHPIN-5617:** Drop the deprecated CallTimePassByReference sniff from Linchpin-Minimum ([75fd323](https://github.com/linchpin/coding-standards/commit/75fd32389111810d0b7093d9f925c83db1796776))
+* **LINCHPIN-5617:** Drop the deprecated CallTimePassByReference sniff from Linchpin-Minimum ([25a89f5](https://github.com/linchpin/coding-standards/commit/25a89f5ec6bc669093c14aa954a2c0e09d61588c))
+
 ## [1.3.0](https://github.com/linchpin/coding-standards/compare/v1.2.0...v1.3.0) (2026-09-12)
 
 
