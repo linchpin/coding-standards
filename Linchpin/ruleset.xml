@@ -14,8 +14,21 @@
 	<!-- Parallel processing. -->
 	<arg name="parallel" value="25"/>
 
-	<!-- WordPress Core currently supports PHP 8.2+. -->
-	<config name="testVersion" value="8.2-8.4"/>
+	<!--
+		WordPress Core currently supports PHP 8.2+.
+
+		Open-ended on purpose. A closed upper bound goes stale silently: it was
+		8.2-8.4 while linchpin.com had already moved to PHP 8.5, so PHPCompatibility
+		was checking that project against the wrong target and every consumer on a
+		newer PHP had to override this line in its own ruleset to get correct
+		results. "8.2-" means 8.2 and above, so a project moving to a new PHP gets
+		accurate compatibility checking without a release here first.
+
+		A project that wants to pin a single version still can, by setting its own
+		testVersion — that is a deliberate narrowing rather than a workaround for a
+		bound that has fallen behind.
+	-->
+	<config name="testVersion" value="8.2-"/>
 
 	<exclude-pattern>node_modules/*</exclude-pattern>
 	<exclude-pattern>vendor/*</exclude-pattern>
