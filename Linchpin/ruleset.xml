@@ -154,8 +154,13 @@
 	<rule ref="Generic.Formatting.DisallowMultipleStatements"/>
 	<!-- Namespacing required for classes. -->
 	<rule ref="PSR1.Classes.ClassDeclaration"/>
-	<!-- Declare symbols or run code, but not both. -->
-	<rule ref="PSR1.Files.SideEffects"/>
+	<!--
+	Not PSR1.Files.SideEffects ("declare symbols or run code, but not both").
+	It counts the `defined( 'ABSPATH' )` guard Plugin Check asks of every PHP
+	file as a side effect, and a functions file that declares functions and then
+	hooks them, so it warned on correct code and nothing else, and projects had
+	to set it to severity 0 in their own ruleset to keep CI green.
+	-->
 	<!-- Namespacing required for functions. -->
 	<rule ref="PSR2.Namespaces.NamespaceDeclaration"/>
 	<!-- Namespacing of `use` statements. -->
