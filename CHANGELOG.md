@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.3.2](https://github.com/linchpin/coding-standards/compare/v1.3.1...v1.3.2) (2026-10-28)
+
+
+### Bug Fixes
+
+* **NO-TASK:** Make SlowOrderBy work and open the PHP target ([52734fb](https://github.com/linchpin/coding-standards/commit/52734fb3fa291515100a6e207880923707f679e2))
+* **NO-TASK:** Stop warning on the ABSPATH guard every class file carries ([3fd3a21](https://github.com/linchpin/coding-standards/commit/3fd3a2122b8eda78c6ff13e0b287b1f89a733958))
+* **NO-TASK:** Stop warning on the ABSPATH guard every class file carries ([c6177d7](https://github.com/linchpin/coding-standards/commit/c6177d77a64bb3c4931a0632f658d7744c0280ca))
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency @wordpress/npm-package-json-lint-config to v6 ([b51258f](https://github.com/linchpin/coding-standards/commit/b51258f6fcb61bf7be948a57831eac5db98fe0b8))
+* **deps:** update dependency @wordpress/npm-package-json-lint-config to v6 ([b26cb9e](https://github.com/linchpin/coding-standards/commit/b26cb9eaeffdaeba2bd3501ad70e4ae3ad42c2e1))
+* **deps:** update node.js to v26 ([5dde657](https://github.com/linchpin/coding-standards/commit/5dde6572c17335b9231fcfc25acdfb9d344c00e8))
+* **deps:** update node.js to v26 ([cec1462](https://github.com/linchpin/coding-standards/commit/cec1462d9e6dd7bc2e2ede12d731ec54a49be2a5))
+* **deps:** update npm to v12.2.1 ([abcee50](https://github.com/linchpin/coding-standards/commit/abcee5014dfe800e7944278c6646f1573df54022))
+* **deps:** update npm to v12.2.1 ([669aa76](https://github.com/linchpin/coding-standards/commit/669aa76ccf8f83a45b7ccd55568e6ad71bfcac1c))
+* **deps:** update phpcsstandards/xmllint-validate action to v2.0.1 ([1a0ad80](https://github.com/linchpin/coding-standards/commit/1a0ad809e6c5cefd9c97f44fdf4c53ec896fc17c))
+* **deps:** update phpcsstandards/xmllint-validate action to v2.0.1 ([844a50c](https://github.com/linchpin/coding-standards/commit/844a50c8061133a855f853015b1aaad73f46c863))
+
 ## [1.3.1](https://github.com/linchpin/coding-standards/compare/v1.3.0...v1.3.1) (2026-09-15)
 
 
